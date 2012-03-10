@@ -1,5 +1,8 @@
 [
   "sView.js",
+  "sObjectView.js",
+  "sDataListItem.js",
+  "sDataList.js",
   "sFormField.js",
   "sTextField.js",
   "sPasswordField.js",
