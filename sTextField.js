@@ -1,7 +1,11 @@
+/**
+ * @constructor
+ */
 var sTextField = function (name) {
-  this.parent.constructor.call(this, name);
+  this.parent.constructor.call(this);
 
   this._labelDOMElement = null;
+  this._fieldDOMElement = document.createElement('input');
   this._fieldDOMElement.setAttribute('type', 'text');
   this._fieldDOMElement.setAttribute('name', name);
   this._fieldDOMElement.className = 'form-textfield';

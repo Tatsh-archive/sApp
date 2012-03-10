@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 var sPasswordField = function (name) {
   this.parent.constructor.call(this, name);
 

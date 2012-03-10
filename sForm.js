@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 var sForm = function () {
   this.parent.constructor.call(this);
   this._DOMElement = document.createElement('form');
@@ -64,5 +67,9 @@ sForm.prototype.appendTo = function (element) {
 };
 sForm.prototype.setMethod = function (method) {
   this._DOMElement.method = method.toLowerCase();
+  return this;
+};
+sForm.prototype.setAction = function (action) {
+  this._DOMElement.action = action;
   return this;
 };
