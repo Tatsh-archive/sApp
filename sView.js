@@ -1,6 +1,10 @@
+/**
+ * @constructor
+ */
 var sView = function () {
   this._DOMElement = null;
   this._isAppended = false;
+  this._rendered = false;
   return this;
 };
 sView.prototype.setDOMElement = function (element) {
@@ -14,6 +18,14 @@ sView.prototype.isAppended = function () {
 };
 sView.prototype.appendTo = function (element) {
   this._isAppended = true;
+  this._rendered = true;
   element.appendChild(this._DOMElement);
   return this;
+};
+sView.prototype.setRendered = function (bool) {
+  this._rendered = bool ? true : false;
+  return this;
+};
+sView.prototype.isRendered = function () {
+  return this._rendered;
 };

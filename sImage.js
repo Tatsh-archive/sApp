@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 var sImage = function (src, alt) {
   this.parent.constructor.call(this);
 

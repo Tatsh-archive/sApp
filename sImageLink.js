@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 var sImageLink = function (url, src, alt) {
   this.parent.constructor.call(this);
 
