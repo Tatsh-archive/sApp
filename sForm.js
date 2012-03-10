@@ -10,9 +10,13 @@ var sForm = function () {
   this._submithandlers = [];
   this._usesDefaultEvent = true;
 
+  this._buttons = [];
+  this._buttonsDOMElement = document.createElement('div');
+  this._buttonsDOMElement.className = 'form-ops-container';
+
   var instance = this;
   q(this._DOMElement).bind('submit', function (event) {
-    var fns = this.getSubmitHandlers();
+    var fns = instance.getSubmitHandlers();
     for (var i = 0; i < fns.length; i++) {
       if (!fns[i](instance)) {
         event.preventDefault();
@@ -61,6 +65,11 @@ sForm.prototype.appendTo = function (element) {
     this._fields[i].appendTo(this._DOMElement);
   }
 
+  for (i = 0; i < this._buttons.length; i++) {
+    this._buttonsDOMElement.appendChild(this._buttons[i]);
+  }
+  this._DOMElement.appendChild(this._buttonsDOMElement);
+
   element.appendChild(this._DOMElement);
 
   return this;
@@ -71,5 +80,16 @@ sForm.prototype.setMethod = function (method) {
 };
 sForm.prototype.setAction = function (action) {
   this._DOMElement.action = action;
+  return this;
+};
+sForm.prototype.addButton = function (value) {
+  var button = document.createElement('input');
+  button.className = 'form-submit';
+  button.setAttribute('name', 'op');
+  button.setAttribute('type', 'submit');
+  button.setAttribute('value', value);
+
+  this._buttons.push(button);
+
   return this;
 };
