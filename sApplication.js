@@ -54,7 +54,8 @@ sApplication.prototype.main = function () {
 };
 sApplication.prototype.addStateListener = function (key, func) {
   sHistory.addEventListener(function () {
-    if ((value = sHistory.getState(key)) !== null) {
+    var value = sHistory.getState(key);
+    if (value !== null) {
       func(value);
     }
   });
