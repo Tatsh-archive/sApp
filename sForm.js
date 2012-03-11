@@ -58,7 +58,7 @@ sForm.prototype.addFields = function (arr) {
   }
   return this;
 };
-sForm.prototype.appendTo = function (element) {
+sForm.prototype._pendCommon = function () {
   this._isAppended = true;
 
   for (var i = 0; i < this._fields.length; i++) {
@@ -69,10 +69,10 @@ sForm.prototype.appendTo = function (element) {
     this._buttonsDOMElement.appendChild(this._buttons[i]);
   }
   this._DOMElement.appendChild(this._buttonsDOMElement);
-
-  element.appendChild(this._DOMElement);
-
-  return this;
+};
+sForm.prototype.appendTo = function (element) {
+  this._pendCommon();
+  return this.parent.appendTo.call(this, element);
 };
 sForm.prototype.setMethod = function (method) {
   this._DOMElement.method = method.toLowerCase();
@@ -92,4 +92,12 @@ sForm.prototype.addButton = function (value) {
   this._buttons.push(button);
 
   return this;
+};
+sForm.prototype.prependTo = function (element) {
+  this._pendCommon();
+  return this.parent.prependTo.call(this, element);
+};
+sForm.prototype.insertAfterId = function (id) {
+  this._pendCommon();
+  return this.parent.insertAfterId.call(this, id);
 };

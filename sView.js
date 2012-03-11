@@ -29,3 +29,23 @@ sView.prototype.setRendered = function (bool) {
 sView.prototype.isRendered = function () {
   return this._rendered;
 };
+sView.prototype.prependTo = function (element) {
+  this._isAppended = true;
+  this._rendered = true;
+  element.insertBefore(this._DOMElement, element.firstChild);
+  return this;
+};
+sView.prototype.insertAfterId = function (id) {
+  var element = document.getElementById(id);
+
+  if (element !== null) {
+    if (element.nextSibling) {
+      element.parentNode.insertBefore(this._DOMElement, element.nextSibling);
+    }
+    else {
+      element.parentNode.appendChild(this._DOMElement);
+    }
+  }
+
+  return this;
+};
