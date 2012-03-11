@@ -14,17 +14,23 @@ var sForm = function () {
   this._buttonsDOMElement = document.createElement('div');
   this._buttonsDOMElement.className = 'form-ops-container';
 
+  this._CSRFDOMElement = document.createElement('input');
+  this._CSRFDOMElement.setAttribute('type', 'hidden');
+  this._CSRFDOMElement.setAttribute('name', 'csrf');
+  this._CSRFDOMElement.value = '';
+
   var instance = this;
   q(this._DOMElement).bind('submit', function (event) {
     var fns = instance.getSubmitHandlers();
+    var ret = true;
+
     for (var i = 0; i < fns.length; i++) {
       if (!fns[i](instance)) {
-        event.preventDefault();
-        return false;
+        ret = false;
       }
     }
 
-    if (!instance.usesDefaultEvent()) {
+    if (!instance.usesDefaultEvent() || !ret) {
       event.preventDefault();
       return false;
     }
@@ -69,6 +75,7 @@ sForm.prototype._pendCommon = function () {
     this._buttonsDOMElement.appendChild(this._buttons[i]);
   }
   this._DOMElement.appendChild(this._buttonsDOMElement);
+  this._DOMElement.appendChild(this._CSRFDOMElement);
 };
 sForm.prototype.appendTo = function (element) {
   this._pendCommon();
@@ -100,4 +107,82 @@ sForm.prototype.prependTo = function (element) {
 sForm.prototype.insertAfterId = function (id) {
   this._pendCommon();
   return this.parent.insertAfterId.call(this, id);
+};
+sForm.prototype.disable = function () {
+  var form = this._DOMElement;
+  var inputs = form.getElementsByTagName('input');
+  var textareas = form.getElementsByTagName('textarea');
+
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].getAttribute('type').toLowerCase() !== 'hidden') {
+      inputs[i].setAttribute('disabled', 'disabled');
+    }
+  }
+
+  for (i = 0; i < textareas.length; i++) {
+    textareas[i].setAttribute('disabled', 'disabled');
+  }
+
+  return this;
+};
+sForm.prototype.enable = function () {
+  var form = this._DOMElement;
+  var inputs = form.getElementsByTagName('input');
+  var textareas = form.getElementsByTagName('textarea');
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].removeAttribute('disabled');
+  }
+
+  for (i = 0; i < textareas.length; i++) {
+    textareas[i].removeAttribute('disabled');
+  }
+
+  return this;
+};
+sForm.prototype.submitByAJAX = function (cb, errorCb, dataType, isFileUpload) {
+  var postData = {};
+
+  // Find anything with a value
+  var form = this._DOMElement;
+  var inputs = form.getElementsByTagName('input');
+  var textareas = form.getElementsByTagName('textarea');
+  var type;
+  var name;
+
+  for (var i = 0; i < inputs.length; i++) {
+    type = inputs[i].getAttribute('type').toLowerCase();
+    name = inputs[i].getAttribute('name');
+
+    if (name) {
+      if (type === 'checkbox' || type === 'radio') {
+        if (inputs[i].checked) {
+          postData[name] = inputs[i].value;
+        }
+      }
+      else {
+        postData[name] = inputs[i].value;
+      }
+    }
+  }
+
+  for (i = 0; i < textareas.length; i++) {
+    name = textareas[i].getAttribute('name');
+
+    if (name) {
+      postData[name] = textareas[i].value;
+    }
+  }
+
+  sAJAXRequest.post(this._DOMElement.action, postData, cb, errorCb, dataType, isFileUpload);
+
+  return this;
+};
+sForm.prototype.reset = function () {
+  this._DOMElement.reset();
+  return this;
+};
+sForm.prototype.setCSRF = function (csrf) {
+  this._CSRFDOMElement.value = csrf;
+  return this;
 };
