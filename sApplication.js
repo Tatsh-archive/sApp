@@ -114,6 +114,10 @@ sApplication.prototype.addStateListener = function (key, func, type) {
     var value = sHistory.getState(key, type);
     var lastState = sApplication._statesListeningOn[key];
 
+    if (value === null) {
+      return; // Do nothing on null value
+    }
+
     if (type.substr(0, 4) === 'bool' || type === 'number' || type === 'float') {
       // 0 and false are acceptable responses in this case
       if (value !== lastState) {
@@ -121,7 +125,7 @@ sApplication.prototype.addStateListener = function (key, func, type) {
       }
     }
     else if (value && value !== lastState) {
-      func(value);
+      func(value.toString());
     }
 
     sApplication._statesListeningOn[key] = value;
