@@ -26,6 +26,7 @@ sTextField.prototype.setLabel = function (label) {
     this._labelDOMElement = document.createElement('label');
   }
   this._labelDOMElement.innerHTML = label;
-  this._DOMElement.prependChild(this._labelDOMElement);
+  //this._DOMElement.parentNode.insertAfter
+  //this._DOMElement.prependChild(this._labelDOMElement);
   return this;
 };

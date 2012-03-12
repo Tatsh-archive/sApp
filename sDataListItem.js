@@ -30,13 +30,14 @@ sDataListItem.prototype = new sView();
 //  * @private
 //  */
 // sDataListItem.prototype.parent = sView.prototype;
-/**
- * @type function()
- * @private
- */
+// TODO Fix warning
+// /**
+//  * @type function()
+//  * @private
+//  */
 sDataListItem.prototype.constructor = sDataListItem;
 /**
- * @type {Element} element
+ * @param {Element} element
  * @returns {sDataListItem}
  */
 sDataListItem.prototype.appendTo = function (element) {

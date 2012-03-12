@@ -16,6 +16,10 @@ sView.prototype.getDOMElement = function () {
 sView.prototype.isAppended = function () {
   return this._isAppended;
 };
+/**
+ * @param {Element} element
+ * @returns {sView}
+ */
 sView.prototype.appendTo = function (element) {
   this._isAppended = true;
   this._rendered = true;

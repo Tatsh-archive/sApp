@@ -8,7 +8,7 @@
 var sDataList = function () {
   /**
    * @private
-   * @type string|null
+   * @type (string|null)
    */
   this._dataSourceURI = null;
   /**
@@ -139,8 +139,8 @@ sDataList.prototype.setData = function (data) {
  * @param {boolean} force Force a re-load of the data.
  * @returns {sDataList} The data list object to allow method chaining.
  */
-sDataList.prototype.render = function () {
-  if (!this._rendered) {
+sDataList.prototype.render = function (force) {
+  if (!this._rendered || force) {
     this._rendered = true;
   }
   return this;

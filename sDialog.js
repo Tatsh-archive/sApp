@@ -74,7 +74,7 @@ sDialog.prototype.setId = function (id) {
   return this;
 };
 sDialog.prototype.hide = function () {
-  this._DOMElement.className += ' sdialog-hidden';;
+  this._DOMElement.className += ' sdialog-hidden';
   return this;
 };
 sDialog.prototype.show = function () {
@@ -107,7 +107,7 @@ sDialog.prototype.appendTo = function (element) {
   this._DOMElement.appendChild(this._buttonsContainer);
 
   if (addEvent) {
-    var element = this._DOMElement;
+    element = this._DOMElement;
     var resize = function () {
       var height = sWin.getHeight() / 2;
       var width = sWin.getWidth() / 2;
