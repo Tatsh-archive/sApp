@@ -3,6 +3,7 @@
  * @constructor
  * @param {string} title The title for the dialog.
  * @returns {sDialog} The dialog object.
+ * @augments sView
  */
 var sDialog = function (title) {
   this.parent.constructor.call(this);

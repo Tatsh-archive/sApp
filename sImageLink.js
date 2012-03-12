@@ -5,6 +5,7 @@
  * @param {string} src Source URI for the image.
  * @param {string} alt Alternative txt for the a tag.
  * @returns {sImageLink} The image link object.
+ * @augments sView
  */
 var sImageLink = function (url, src, alt) {
   this.parent.constructor.call(this);

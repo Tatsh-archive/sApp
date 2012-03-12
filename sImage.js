@@ -4,6 +4,7 @@
  * @param {string} src Source of the image.
  * @param {string} alt Alternative text for the image.
  * @returns {sImage} The image object.
+ * @augments sView
  */
 var sImage = function (src, alt) {
   this.parent.constructor.call(this);

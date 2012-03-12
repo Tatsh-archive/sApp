@@ -3,6 +3,7 @@
  * @constructor
  * @param {string} name Name for the field.
  * @returns {sPasswordField} The password field object.
+ * @augments sTextField
  */
 var sPasswordField = function (name) {
   this.parent.constructor.call(this, name);

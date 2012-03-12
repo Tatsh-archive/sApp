@@ -5,6 +5,7 @@
  * @see sDataList#decodeDataToItems
  * @constructor
  * @returns {sDataList} The object.
+ * @augments sView
  */
 var sDataList = function () {
   /**

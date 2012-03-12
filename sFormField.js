@@ -2,6 +2,7 @@
  * Base class for form fields.
  * @constructor
  * @returns {sFormField} The form field object.
+ * @augments sView
  */
 var sFormField = function () {
   this.parent.constructor.call(this);

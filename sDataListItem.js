@@ -3,6 +3,7 @@
  * @constructor
  * @param {Object} data Object of data.
  * @returns {sDataListItem} The list item.
+ * @augments sView
  */
 var sDataListItem = function (data) {
   //this.parent.constructor.call(this);

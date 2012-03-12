@@ -2,6 +2,7 @@
  * Represents a form.
  * @constructor
  * @returns {sForm} The form object.
+ * @augments sView
  */
 var sForm = function () {
   this.parent.constructor.call(this);
