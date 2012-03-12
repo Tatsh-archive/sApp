@@ -1,5 +1,5 @@
 /**
- * Represents one item in a sDataList.
+ * Represents one item in a sDataList object.
  * @constructor
  * @param {Object} data Object of data.
  * @returns {sDataListItem} The list item.
@@ -37,8 +37,8 @@ sDataListItem.prototype = new sView();
 //  */
 sDataListItem.prototype.constructor = sDataListItem;
 /**
- * @param {Element} element
- * @returns {sDataListItem}
+ * @param {Element} element The element to append to.
+ * @returns {sDataListItem} The object to allow method chaining.
  */
 sDataListItem.prototype.appendTo = function (element) {
   element.appendChild(this._DOMElement);

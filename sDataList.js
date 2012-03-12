@@ -4,6 +4,7 @@
  * When extending, before sure to override the decodeDataToItems() method.
  * @see sDataList#decodeDataToItems
  * @constructor
+ * @returns {sDataList} The object.
  */
 var sDataList = function () {
   /**
