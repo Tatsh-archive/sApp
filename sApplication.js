@@ -89,17 +89,42 @@ sApplication.prototype.main = function () {
   return this;
 };
 /**
+ * States listening to.
+ * @type Object
+ * @private
+ */
+sApplication._statesListeningOn = {};
+/**
  * Add a state listener on a particular key.
  * @param {string} key Key to listen for.
- * @param {function(string)} func The function call each time this key changes.
+ * @param {function((string|number|boolean))} func The function called each
+ *   time this key changes.
+ * @param {string} [type='string'] The type of the value. One of: 'string',
+ *   'boolean', 'float', 'number.
  * @returns {sApplication} The object to allow method chaining.
  */
-sApplication.prototype.addStateListener = function (key, func) {
+sApplication.prototype.addStateListener = function (key, func, type) {
+  sApplication._statesListeningOn[key] = null;
+
+  if (type === undefined) {
+    type = 'string';
+  }
+
   sHistory.addEventListener(function () {
-    var value = sHistory.getState(key);
-    if (value !== null) {
-      func(value.toString());
+    var value = sHistory.getState(key, type);
+    var lastState = sApplication._statesListeningOn[key];
+
+    if (type.substr(0, 4) === 'bool' || type === 'number' || type === 'float') {
+      // 0 and false are acceptable responses in this case
+      if (value !== lastState) {
+        func(value);
+      }
     }
+    else if (value && value !== lastState) {
+      func(value);
+    }
+
+    sApplication._statesListeningOn[key] = value;
   });
   return this;
 };
