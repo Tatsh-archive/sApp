@@ -1,5 +1,6 @@
 [
   "sView.js",
+  "sOverlayView.js",
   "sDataListItem.js",
   "sDataList.js",
   "sFormField.js",
