@@ -58,3 +58,7 @@ sTextField.prototype.setPlaceholder = function (placeholder) {
 //   //this._DOMElement.prependChild(this._labelDOMElement);
 //   return this;
 // };
+sTextField.prototype.setAutoComplete = function (bool) {
+  this._fieldDOMElement.setAttribute('autocomplete', bool ? 'on' : 'off');
+  return this;
+};
