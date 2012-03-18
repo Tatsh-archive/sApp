@@ -42,3 +42,12 @@ sFormField.prototype.parent = sView.prototype;
 sFormField.prototype.getFieldDOMElement = function () {
   return this._fieldDOMElement;
 };
+/**
+ * Set the field's required attribute.
+ * @param {boolean} required If required.
+ * @returns {sFormField} The object to allow method chaining.
+ */
+sFormField.prototype.setRequired = function (required) {
+  this._fieldDOMElement.required = required ? true : false;
+  return this;
+};
