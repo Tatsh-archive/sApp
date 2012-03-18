@@ -6,6 +6,13 @@
  * @augments sView
  */
 var sDialog = function (title) {
+  // Just in case, must come before any others to make it easier to use
+  var overlay = sOverlayView.getInstance();
+
+  q(overlay.getDOMElement()).bind('click', function () {
+    sHistory.removeState('dialog');
+  });
+
   this.parent.constructor.call(this);
 
   /**
@@ -148,6 +155,7 @@ sDialog.prototype.setId = function (id) {
  * @returns {sDialog} The object to allow method chaining.
  */
 sDialog.prototype.hide = function () {
+  sOverlayView.getInstance().hide();
   this._DOMElement.className += ' sdialog-hidden';
   return this;
 };
@@ -157,6 +165,7 @@ sDialog.prototype.hide = function () {
  * @returns {sDialog} The object to allow method chaining.
  */
 sDialog.prototype.show = function () {
+  sOverlayView.getInstance().show();
   this._DOMElement.className = this._DOMElement.className.replace(/(\s+)?sdialog\-hidden/g, '');
   return this;
 };
