@@ -64,6 +64,12 @@ var sDialog = function (title) {
    */
   this._centered = true;
 
+  /**
+   * @type (number|null)
+   * @private
+   */
+  this._minYOnResize = null;
+
   return this;
 };
 /**
@@ -190,6 +196,16 @@ sDialog.prototype.addButton = function (label, formToSubmit) {
   return this;
 };
 /**
+ * Control the minimum y value the dialog must stay at when the window
+ *   gets resized.
+ * @param {number} y Y value.
+ * @returns {sDialog} The object to allow method chaining.
+ */
+sDialog.prototype.setMinYOnResize = function (y) {
+  this._minYOnResize = y;
+  return this;
+};
+/**
  * Append the dialog to the element specified.
  * @param {Element} element Element to append to.
  * @returns {sDialog} The object to allow method chaining.
@@ -207,11 +223,16 @@ sDialog.prototype.appendTo = function (element) {
 
   if (addEvent) {
     element = this._DOMElement;
+    var minY = this._minYOnResize;
     var resize = function () {
       var height = sWin.getHeight() / 2;
       var width = sWin.getWidth() / 2;
       var x = parseInt(width - (element.offsetWidth / 2), 10);
       var y = parseInt(height - (element.offsetHeight / 2), 10);
+
+      if (minY !== null && y < minY) {
+        y = minY;
+      }
 
       if (sCSS.hasTransforms) {
         sCSS.translate(element, x, y);
