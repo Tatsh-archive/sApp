@@ -11,8 +11,8 @@ var sApplication = function (title) {
   // Bind dialog handling
   var app = this;
   sHistory.addEventListener(function () {
-
     var dialog = sHistory.getState('dialog');
+
     for (var key in app._dialogs) {
       if (app._dialogs.hasOwnProperty(key)) {
         app._dialogs[key].hide();
@@ -113,9 +113,10 @@ sApplication.prototype.addStateListener = function (key, func, type) {
   sHistory.addEventListener(function () {
     var value = sHistory.getState(key, type);
     var lastState = sApplication._statesListeningOn[key];
+    sApplication._statesListeningOn[key] = value;
 
     if (value === null) {
-      return; // Do nothing on null value
+      return;
     }
 
     if (type.substr(0, 4) === 'bool' || type === 'number' || type === 'float') {
@@ -127,8 +128,6 @@ sApplication.prototype.addStateListener = function (key, func, type) {
     else if (value && value !== lastState) {
       func(value.toString());
     }
-
-    sApplication._statesListeningOn[key] = value;
   });
   return this;
 };
