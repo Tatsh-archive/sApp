@@ -3,6 +3,7 @@
  * @constructor
  * @param {string} name Name of the field.
  * @returns {sEmailField} The field object.
+ * @augments sTextField
  */
 var sEmailField = function (name) {
   this.parent.constructor.call(this, name);

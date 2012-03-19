@@ -2,6 +2,7 @@
  * Represents an overlay view.
  * @constructor
  * @returns {sOverlayView} The view.
+ * @augments sView
  */
 var sOverlayView = function () {
   this.parent.constructor.call(this);
