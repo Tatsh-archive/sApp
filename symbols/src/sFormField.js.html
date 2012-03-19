@@ -1,0 +1,61 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Base class for form fields.
+<span class='line'>  3</span>  * @constructor
+<span class='line'>  4</span>  * @returns {sFormField} The form field object.
+<span class='line'>  5</span>  * @augments sView
+<span class='line'>  6</span>  */</span><span class="WHIT">
+<span class='line'>  7</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">sFormField</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>  8</span> </span><span class="WHIT">  </span><span class="NAME">this.parent.constructor.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  9</span> 
+<span class='line'> 10</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 11</span>    * @type Element
+<span class='line'> 12</span>    * @private
+<span class='line'> 13</span>    */</span><span class="WHIT">
+<span class='line'> 14</span> </span><span class="WHIT">  </span><span class="NAME">this._fieldDOMElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.createElement</span><span class="PUNC">(</span><span class="STRN">'input'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 15</span> 
+<span class='line'> 16</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 17</span>    * @type string
+<span class='line'> 18</span>    * @private
+<span class='line'> 19</span>    */</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="WHIT">  </span><span class="NAME">this._value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 21</span> 
+<span class='line'> 22</span> </span><span class="WHIT">  </span><span class="COMM">/**
+<span class='line'> 23</span>    * The main DOM element.
+<span class='line'> 24</span>    * @private
+<span class='line'> 25</span>    * @type Element
+<span class='line'> 26</span>    */</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">  </span><span class="NAME">this._DOMElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.createElement</span><span class="PUNC">(</span><span class="STRN">'div'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">  </span><span class="NAME">this._DOMElement.appendChild</span><span class="PUNC">(</span><span class="NAME">this._fieldDOMElement</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="COMM">/**
+<span class='line'> 33</span>  * @type sView
+<span class='line'> 34</span>  * @private
+<span class='line'> 35</span>  */</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="NAME">sFormField.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">sView</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="NAME">sFormField.prototype.parent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">sView.prototype</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="COMM">/**
+<span class='line'> 39</span>  * Get the field DOM element, since fields are wrapped in divs.
+<span class='line'> 40</span>  * @returns {Element} The DOM element.
+<span class='line'> 41</span>  */</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="NAME">sFormField.prototype.getFieldDOMElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._fieldDOMElement</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="COMM">/**
+<span class='line'> 46</span>  * Set the field's required attribute.
+<span class='line'> 47</span>  * @param {boolean} required If required.
+<span class='line'> 48</span>  * @returns {sFormField} The object to allow method chaining.
+<span class='line'> 49</span>  */</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="NAME">sFormField.prototype.setRequired</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">required</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">  </span><span class="NAME">this._fieldDOMElement.required</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">required</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span></pre></body></html>
