@@ -37,7 +37,8 @@ var sOverlayView = function () {
     'position': 'fixed',
     'top': 0,
     'height': sWin.getHeight() + 'px',
-    'opacity': 0
+    'opacity': 0,
+    'filter': 'alpha(opacity=0)'
   };
   for (var attr in css) {
     this._DOMElement.style[attr] = css[attr];
@@ -62,6 +63,7 @@ sOverlayView.prototype.parent = sView.prototype;
  * @returns {sOverlayView} The object to allow method chaining.
  */
 sOverlayView.prototype.show = function () {
+  this._DOMElement.style.filter = 'alpha(opacity=60)';
   this._DOMElement.style.display = 'block';
   this._DOMElement.style.zIndex = 100;
   this._DOMElement.style.opacity = this._opacity;
@@ -72,6 +74,7 @@ sOverlayView.prototype.show = function () {
  * @returns {sOverlayView} The object to allow method chaining.
  */
 sOverlayView.prototype.hide = function () {
+  this._DOMElement.style.filter = 'alpha(opacity=0)';
   this._DOMElement.style.opacity = 0;
   this._DOMElement.style.zIndex = -2000;
   this._DOMElement.style.display = 'none';
