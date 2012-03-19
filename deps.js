@@ -8,6 +8,13 @@
  * @private
  */
 var inputPlaceholder = function (input, color) {
+  if (color && color.toString) {
+    color = color.toString();
+  }
+  else if (typeof color !== 'string') {
+    color = '#aaa';
+  }
+
   /**
    * Tested with:
    * - IE 7
@@ -25,10 +32,6 @@ var inputPlaceholder = function (input, color) {
   // Do nothing if placeholder supported by the browser (Webkit, Firefox 3.7)
   if (input.placeholder && 'placeholder' in document.createElement(input.tagName)) {
     return input;
-  }
-
-  if (color === undefined) {
-    color = '#aaa';
   }
 
   var defaultColor = input.style.color;
