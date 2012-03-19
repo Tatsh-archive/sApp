@@ -5,6 +5,7 @@
   "sDataList.js",
   "sFormField.js",
   "sTextField.js",
+  "sEmailField.js",
   "sPasswordField.js",
   "sTextAreaField.js",
   "sForm.js",
