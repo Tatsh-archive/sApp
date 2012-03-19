@@ -46,6 +46,7 @@ sTextField.prototype.parent = sFormField.prototype;
  */
 sTextField.prototype.setPlaceholder = function (placeholder) {
   this._fieldDOMElement.setAttribute('placeholder', placeholder);
+  inputPlaceholder(this._fieldDOMElement);
   return this;
 };
 // TODO
