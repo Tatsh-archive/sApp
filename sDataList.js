@@ -49,7 +49,7 @@ var sDataList = function () {
    */
   this._rendered = false;
   /**
-   * @type sSortableButtonBar
+   * @type sButtonBar
    * @private
    */
   this._sortableButtonBar = new sButtonBar();
@@ -207,8 +207,8 @@ sDataList.prototype.getData = function () {
 };
 /**
  * Adds a category button to sort with.
- * @param {string} categoryName Category name, such as <code>'A-Z'</code>.
- * @param {function(string)} fn Function that will be called when this is sort
+ * @param {string} label Label, such as <code>'A-Z'</code>.
+ * @param {function()} fn Function that will be called when this is sort
  *   is requested.
  * @returns {sDataList} The data list object to allow method chaining.
  */
