@@ -56,7 +56,7 @@
 <span class='line'> 49</span>    */</span><span class="WHIT">
 <span class='line'> 50</span> </span><span class="WHIT">  </span><span class="NAME">this._rendered</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 51</span> </span><span class="WHIT">  </span><span class="COMM">/**
-<span class='line'> 52</span>    * @type sSortableButtonBar
+<span class='line'> 52</span>    * @type sButtonBar
 <span class='line'> 53</span>    * @private
 <span class='line'> 54</span>    */</span><span class="WHIT">
 <span class='line'> 55</span> </span><span class="WHIT">  </span><span class="NAME">this._sortableButtonBar</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">sButtonBar</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
@@ -214,8 +214,8 @@
 <span class='line'>207</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>208</span> </span><span class="COMM">/**
 <span class='line'>209</span>  * Adds a category button to sort with.
-<span class='line'>210</span>  * @param {string} categoryName Category name, such as &lt;code>'A-Z'&lt;/code>.
-<span class='line'>211</span>  * @param {function(string)} fn Function that will be called when this is sort
+<span class='line'>210</span>  * @param {string} label Label, such as &lt;code>'A-Z'&lt;/code>.
+<span class='line'>211</span>  * @param {function()} fn Function that will be called when this is sort
 <span class='line'>212</span>  *   is requested.
 <span class='line'>213</span>  * @returns {sDataList} The data list object to allow method chaining.
 <span class='line'>214</span>  */</span><span class="WHIT">
