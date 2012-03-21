@@ -42,12 +42,24 @@ var sDataList = function () {
    * @private
    * @type Element
    */
-  this._DOMElement = sDoc.newElement('ul');
+  this._mainDOMElement = sDoc.newElement('div');
   /**
    * @private
    * @type boolean
    */
   this._rendered = false;
+  /**
+   * @type sSortableButtonBar
+   * @private
+   */
+  this._sortableButtonBar = new sButtonBar();
+  /**
+   * @type (string|null)
+   * @private
+   */
+  this._currentSort = null;
+
+  this._mainDOMElement.appendChild(this._sortableButtonBar.getDOMElement());
 
   return this;
 };
@@ -63,6 +75,29 @@ sDataList.prototype = new sView();
  */
 sDataList.prototype.setDataSourceURI = function (url) {
   this._dataSourceURI = url;
+  return this;
+};
+/**
+ * Get the current sort type.
+ * @returns {string|null} The sort type or <code>null</code>.
+ */
+sDataList.prototype.getCurrentSort = function () {
+  return this._currentSort;
+};
+/**
+ * Get the sortable button bar.
+ * @returns {sButtonBar} The button bar object.
+ */
+sDataList.prototype.getSortableButtonBar = function () {
+  return this._sortableButtonBar;
+};
+/**
+ * Append the sortable button bar to the element.
+ * @param {Element} element Element to append to.
+ * @returns {sDataList} The data list object to allow method chaining.
+ */
+sDataList.prototype.appendSortableButtonBarTo = function (element) {
+  this._sortableButtonBar.appendTo(element);
   return this;
 };
 /**
@@ -169,4 +204,38 @@ sDataList.prototype.setRendered = function (state) {
  */
 sDataList.prototype.getData = function () {
   return this._data;
+};
+/**
+ * Adds a category button to sort with.
+ * @param {string} categoryName Category name, such as <code>'A-Z'</code>.
+ * @param {function(string)} fn Function that will be called when this is sort
+ *   is requested.
+ * @returns {sDataList} The data list object to allow method chaining.
+ */
+sDataList.prototype.addSortButton = function (label, fn) {
+  var instance = this;
+  this._sortableButtonBar.addButton(label, function () {
+    fn();
+  });
+  return this;
+};
+/**
+ * Appends the main element to the element specified.
+ * @param {Element} element The element to append to.
+ * @returns {sDataList} The object to allow method chaining.
+ */
+sDataList.prototype.appendTo = function (element) {
+  this._isAppended = true;
+  this._rendered = true;
+  element.appendChild(this._mainDOMElement);
+  return this;
+};
+/**
+ * Set the current sort key.
+ * @param {string} label The sort label.
+ * @returns {sDataList} The object to allow method chaining.
+ */
+sDataList.prototype.setCurrentSort = function (label) {
+  this._currentSort = label;
+  return this;
 };
