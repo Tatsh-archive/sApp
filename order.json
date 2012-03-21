@@ -2,6 +2,7 @@
   "deps.js",
   "sView.js",
   "sOverlayView.js",
+  "sButtonBar.js",
   "sDataListItem.js",
   "sDataList.js",
   "sFormField.js",
