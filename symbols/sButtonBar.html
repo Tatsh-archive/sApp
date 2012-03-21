@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sApplication</title>
+		<title>JsDoc Reference - sButtonBar</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -230,7 +230,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sApplication
+				Class sButtonBar
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -241,13 +241,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/sApplication.js.html">sApplication.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/sButtonBar.js.html">sButtonBar.js</a>.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sApplication.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sButtonBar.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -260,9 +260,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sApplication.html#constructor">sApplication</a></b>(title)
+								<b><a href="../symbols/sButtonBar.html#constructor">sButtonBar</a></b>()
 							</div>
-							<div class="description">Application.</div>
+							<div class="description">Represents a set of buttons.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -276,7 +276,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sApplication.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sButtonBar.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -289,55 +289,18 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#addStateListener">addStateListener</a></b>(key, func, type)
+								<div class="fixedFont"><b><a href="../symbols/sButtonBar.html#addButton">addButton</a></b>(label, fn)
 								</div>
-								<div class="description">Add a state listener on a particular key.</div>
+								<div class="description">Adds a button.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#getDialogByName">getDialogByName</a></b>(name)
+								<div class="fixedFont"><b><a href="../symbols/sButtonBar.html#removeButton">removeButton</a></b>(label)
 								</div>
-								<div class="description">Get a dialog by its name (state value).</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#getTitle">getTitle</a></b>()
-								</div>
-								<div class="description">Get the title of this application.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#main">main</a></b>()
-								</div>
-								<div class="description">Begin the application.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#registerDialog">registerDialog</a></b>(stateName, dialog)
-								</div>
-								<div class="description">Register a dialog that will be invoked when a the state 'dialog' (in the
-  hash) is equal to the <code>stateName</code> specified here.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#setTitle">setTitle</a></b>(title)
-								</div>
-								<div class="description">Set the title of this application.</div>
+								<div class="description">Removes a button.</div>
 							</td>
 						</tr>
 					
@@ -358,28 +321,17 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sApplication</b>(title)
+						<b>sButtonBar</b>()
 				</div>
 				
 				<div class="description">
-					Application.
+					Represents a set of buttons.
 					
 				</div>
 				
 				
 				
 				
-					
-						<dl class="detailList">
-						<dt class="heading">Parameters:</dt>
-						
-							<dt>
-								<span class="light fixedFont">{string}</span>  <b>title</b>
-								
-							</dt>
-								<dd>Title of the application.</dd>
-						
-						</dl>
 					
 					
 					
@@ -388,7 +340,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The application object.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span> The button bar object.</dd>
 						
 						</dl>
 					
@@ -407,15 +359,15 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="addStateListener"> </a>
+					<a name="addButton"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
-					<b>addStateListener</b>(key, func, type)
+					<span class="light">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span>
+					<b>addButton</b>(label, fn)
 					
 					</div>
 					<div class="description">
-						Add a state listener on a particular key.
+						Adds a button.
 						
 						
 					</div>
@@ -427,24 +379,16 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{string}</span> <b>key</b>
+									<span class="light fixedFont">{string}</span> <b>label</b>
 									
 								</dt>
-								<dd>Key to listen for.</dd>
+								<dd>Label text.</dd>
 							
 								<dt>
-									<span class="light fixedFont">{function((string|number|boolean))}</span> <b>func</b>
+									<span class="light fixedFont">{function()}</span> <b>fn</b>
 									
 								</dt>
-								<dd>The function called each
-  time this key changes.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>type</b>
-									<i>Optional, Default: 'string'</i>
-								</dt>
-								<dd>The type of the value. One of: 'string',
-  'boolean', 'float', 'number.</dd>
+								<dd>Callback.</dd>
 							
 							</dl>
 						
@@ -455,7 +399,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
@@ -464,15 +408,15 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="getDialogByName"> </a>
+					<a name="removeButton"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{<a href="../symbols/sDialog.html">sDialog</a>|null}</span>
-					<b>getDialogByName</b>(name)
+					<span class="light">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span>
+					<b>removeButton</b>(label)
 					
 					</div>
 					<div class="description">
-						Get a dialog by its name (state value).
+						Removes a button.
 						
 						
 					</div>
@@ -484,10 +428,10 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{string}</span> <b>name</b>
+									<span class="light fixedFont">{string}</span> <b>label</b>
 									
 								</dt>
-								<dd>The name.</dd>
+								<dd>Label of the button to remove.</dd>
 							
 							</dl>
 						
@@ -498,173 +442,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{<a href="../symbols/sDialog.html">sDialog</a>|null}</span> The dialog object, or null if the object does not
-  exist.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="getTitle"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{string}</span>
-					<b>getTitle</b>()
-					
-					</div>
-					<div class="description">
-						Get the title of this application.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{string}</span> The title.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="main"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
-					<b>main</b>()
-					
-					</div>
-					<div class="description">
-						Begin the application. This just calls <code>sHistory.start()</code> if it
-  has not been started yet.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
-							
-							</dl>
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">See:</dt>
-							
-								<dd>sHistory#start</dd>
-							
-							</dl>
-						
-
-					<hr />
-				
-					<a name="registerDialog"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
-					<b>registerDialog</b>(stateName, dialog)
-					
-					</div>
-					<div class="description">
-						Register a dialog that will be invoked when a the state 'dialog' (in the
-  hash) is equal to the <code>stateName</code> specified here.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>stateName</b>
-									
-								</dt>
-								<dd>The state value to match.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/sDialog.html">sDialog</a>}</span> <b>dialog</b>
-									
-								</dt>
-								<dd>The dialog to display.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="setTitle"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
-					<b>setTitle</b>(title)
-					
-					</div>
-					<div class="description">
-						Set the title of this application.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{string}</span> <b>title</b>
-									
-								</dt>
-								<dd>The title to set.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						

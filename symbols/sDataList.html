@@ -193,6 +193,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/sApplication.html">sApplication</a></li>
 	
+	<li><a href="../symbols/sButtonBar.html">sButtonBar</a></li>
+	
 	<li><a href="../symbols/sDataList.html">sDataList</a></li>
 	
 	<li><a href="../symbols/sDataListItem.html">sDataListItem</a></li>
@@ -289,9 +291,45 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#addSortButton">addSortButton</a></b>(categoryName, fn)
+								</div>
+								<div class="description">Adds a category button to sort with.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#appendSortableButtonBarTo">appendSortableButtonBarTo</a></b>(element)
+								</div>
+								<div class="description">Append the sortable button bar to the element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#appendTo">appendTo</a></b>(element)
+								</div>
+								<div class="description">Appends the main element to the element specified.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/sDataList.html#decodeDataToItems">decodeDataToItems</a></b>(data)
 								</div>
 								<div class="description">This is called when the XHR is complete and succeeds.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#getCurrentSort">getCurrentSort</a></b>()
+								</div>
+								<div class="description">Get the current sort type.</div>
 							</td>
 						</tr>
 					
@@ -310,6 +348,15 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/sDataList.html#getLimitPerRequest">getLimitPerRequest</a></b>()
 								</div>
 								<div class="description">Gets the number of items per request.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#getSortableButtonBar">getSortableButtonBar</a></b>()
+								</div>
+								<div class="description">Get the sortable button bar.</div>
 							</td>
 						</tr>
 					
@@ -337,6 +384,15 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/sDataList.html#render">render</a></b>(force)
 								</div>
 								<div class="description">Renders the data.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#setCurrentSort">setCurrentSort</a></b>(label)
+								</div>
+								<div class="description">Set the current sort key.</div>
 							</td>
 						</tr>
 					
@@ -409,7 +465,7 @@ ul.inheritsList
 				
 				
 				<dl class="inheritsList">
-				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a></dd>
+				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a></dd>
 				</dl>
 				
 			
@@ -471,6 +527,142 @@ When extending, before sure to override the decodeDataToItems() method.
 					Method Detail
 				</div>
 				
+					<a name="addSortButton"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>addSortButton</b>(categoryName, fn)
+					
+					</div>
+					<div class="description">
+						Adds a category button to sort with.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>categoryName</b>
+									
+								</dt>
+								<dd>Category name, such as <code>'A-Z'</code>.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function(string)}</span> <b>fn</b>
+									
+								</dt>
+								<dd>Function that will be called when this is sort
+  is requested.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The data list object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="appendSortableButtonBarTo"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>appendSortableButtonBarTo</b>(element)
+					
+					</div>
+					<div class="description">
+						Append the sortable button bar to the element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to append to.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The data list object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="appendTo"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>appendTo</b>(element)
+					
+					</div>
+					<div class="description">
+						Appends the main element to the element specified.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>The element to append to.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name="decodeDataToItems"> </a>
 					<div class="fixedFont">
 					
@@ -507,6 +699,38 @@ When extending, before sure to override the decodeDataToItems() method.
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{Array}</span> Array of sDataListItem objects.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getCurrentSort"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string|null}</span>
+					<b>getCurrentSort</b>()
+					
+					</div>
+					<div class="description">
+						Get the current sort type.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string|null}</span> The sort type or <code>null</code>.</dd>
 							
 							</dl>
 						
@@ -571,6 +795,38 @@ When extending, before sure to override the decodeDataToItems() method.
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{number}</span> Number of items per request.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSortableButtonBar"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span>
+					<b>getSortableButtonBar</b>()
+					
+					</div>
+					<div class="description">
+						Get the sortable button bar.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sButtonBar.html">sButtonBar</a>}</span> The button bar object.</dd>
 							
 							</dl>
 						
@@ -679,6 +935,49 @@ When extending, before sure to override the decodeDataToItems() method.
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The data list object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setCurrentSort"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>setCurrentSort</b>(label)
+					
+					</div>
+					<div class="description">
+						Set the current sort key.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>label</b>
+									
+								</dt>
+								<dd>The sort label.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
@@ -1002,7 +1301,7 @@ When extending, before sure to override the decodeDataToItems() method.
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Mar 19 2012 18:17:41 GMT-0500 (CDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 21 2012 08:37:38 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
