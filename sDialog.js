@@ -114,7 +114,7 @@ sDialog.prototype._renderHeader = function () {
  * @returns {sDialog} The object to allow method chaining.
  */
 sDialog.prototype.setForm = function (form) {
-  this._renderHeader;
+  this._renderHeader();
   form.appendTo(this._DOMElement);
   this._form = form;
   return this;
