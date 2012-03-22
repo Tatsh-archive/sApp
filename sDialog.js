@@ -92,6 +92,7 @@ sDialog.prototype.constructor = sDialog;
  */
 sDialog.prototype._renderHeader = function () {
   this._DOMElement.innerHTML = '';
+  this._header.innerHTML = '';
 
   /**
    * @type Element
