@@ -4,6 +4,7 @@
   "sOverlayView.js",
   "sButtonBar.js",
   "sDataListItem.js",
+  "sDataListNoItemsFoundView.js",
   "sDataList.js",
   "sFormField.js",
   "sTextField.js",
