@@ -24,7 +24,17 @@ var sApplication = function (title) {
     }
   });
 
+  /**
+   * @type boolean
+   * @private
+   */
   this._started = false;
+
+  /**
+   * @type string
+   * @private
+   */
+  this._titleSeparator = ' | ';
 
   sApplication._apps[title] = this;
 
@@ -129,5 +139,21 @@ sApplication.prototype.addStateListener = function (key, func, type) {
       func(value.toString());
     }
   });
+  return this;
+};
+/**
+ * Sets the page title.
+ * @param {string} title The title to set. Will be suffixed with the
+ *   application name. If <code>null</code>, the page title will be set to the
+ *   application name.
+ * @returns {sApplication} The object to allow method chaining.
+ */
+sApplication.prototype.setTitle = function (title) {
+  if (title === null) {
+    document.title = this._title;
+    return;
+  }
+
+  document.title = title + this._titleSeparator + this._title;
   return this;
 };
