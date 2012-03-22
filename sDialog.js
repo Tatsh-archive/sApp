@@ -6,13 +6,6 @@
  * @augments sView
  */
 var sDialog = function (title) {
-  // Just in case, must come before any others to make it easier to use
-  var overlay = sOverlayView.getInstance();
-
-  q(overlay.getDOMElement()).bind('click', function () {
-    sHistory.removeState('dialog');
-  });
-
   this.parent.constructor.call(this);
 
   /**
@@ -26,18 +19,12 @@ var sDialog = function (title) {
    * @private
    */
   this._DOMElement = document.createElement('div');
-  this._DOMElement.className = 'sdialog';
 
   /**
    * @type Element
    * @private
    */
   this._header = document.createElement('header');
-  var h2 = document.createElement('h2');
-  h2.appendChild(document.createTextNode(title));
-  this._header.appendChild(h2);
-  this._header.appendChild(sDialog.makeCloseButton());
-  this._DOMElement.appendChild(this._header);
 
   /**
    * @type (Element|null)
@@ -70,6 +57,8 @@ var sDialog = function (title) {
    */
   this._minYOnResize = null;
 
+  this._renderHeader();
+
   return this;
 };
 /**
@@ -98,13 +87,34 @@ sDialog.prototype = new sView();
 sDialog.prototype.parent = sView.prototype;
 sDialog.prototype.constructor = sDialog;
 /**
+ * @private
+ * @returns {sDialog} The object to allow method chaining.
+ */
+sDialog.prototype._renderHeader = function () {
+  this._DOMElement.innerHTML = '';
+
+  /**
+   * @type Element
+   * @private
+   */
+  var h2 = document.createElement('h2');
+
+  this._DOMElement.className = 'sdialog';
+  this._header.className = 'sdialog-header';
+  h2.appendChild(document.createTextNode(this._title));
+  this._header.appendChild(h2);
+  this._header.appendChild(sDialog.makeCloseButton());
+  this._DOMElement.appendChild(this._header);
+
+  return this;
+};
+/**
  * Set the form for this dialog. A dialog can only have one form.
  * @param {sForm} form Form object.
  * @returns {sDialog} The object to allow method chaining.
  */
 sDialog.prototype.setForm = function (form) {
-  this._DOMElement.innerHTML = '';
-  this._DOMElement.appendChild(this._header);
+  this._renderHeader;
   form.appendTo(this._DOMElement);
   this._form = form;
   return this;
@@ -162,7 +172,7 @@ sDialog.prototype.setId = function (id) {
  */
 sDialog.prototype.hide = function () {
   sOverlayView.getInstance().hide();
-  this._DOMElement.className += ' sdialog-hidden';
+  q(this._DOMElement).addClass('sdialog-hidden');
   return this;
 };
 /**
@@ -172,7 +182,7 @@ sDialog.prototype.hide = function () {
  */
 sDialog.prototype.show = function () {
   sOverlayView.getInstance().show();
-  this._DOMElement.className = this._DOMElement.className.replace(/(\s+)?sdialog\-hidden/g, '');
+  q(this._DOMElement).removeClass('sdialog-hidden');
   return this;
 };
 /**
