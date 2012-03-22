@@ -239,3 +239,10 @@ sDataList.prototype.setCurrentSort = function (label) {
   this._currentSort = label;
   return this;
 };
+/**
+ * Get the container DOM element.
+ * @returns {Element} The container DOM element.
+ */
+sDataList.prototype.getContainerDOMElement = function () {
+  return this._mainDOMElement;
+};
