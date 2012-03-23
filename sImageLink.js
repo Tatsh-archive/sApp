@@ -3,11 +3,11 @@
  * @constructor
  * @param {string} url URL for the link.
  * @param {string} src Source URI for the image.
- * @param {string} alt Alternative txt for the a tag.
+ * @param {string} [alt] Alternative txt for the a tag.
  * @returns {sImageLink} The image link object.
  * @augments sView
  */
-var sImageLink = function (url, src, alt) {
+var sImageLink = function (url, src, alt, title) {
   this.parent.constructor.call(this);
 
   this._image = new sImage(src, alt);
