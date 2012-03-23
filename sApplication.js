@@ -54,11 +54,11 @@ sApplication.prototype.getTitle = function () {
   return this._title;
 };
 /**
- * Set the title of this application.
+ * Change the title of this application.
  * @param {string} title The title to set.
  * @returns {sApplication} The object to allow method chaining.
  */
-sApplication.prototype.setTitle = function (title) {
+sApplication.prototype.changeTitle = function (title) {
   this._title = title;
   return this;
 };
@@ -143,7 +143,7 @@ sApplication.prototype.addStateListener = function (key, func, type) {
 };
 /**
  * Sets the page title.
- * @param {string} title The title to set. Will be suffixed with the
+ * @param {string|null} title The title to set. Will be suffixed with the
  *   application name. If <code>null</code>, the page title will be set to the
  *   application name.
  * @returns {sApplication} The object to allow method chaining.
@@ -151,7 +151,7 @@ sApplication.prototype.addStateListener = function (key, func, type) {
 sApplication.prototype.setTitle = function (title) {
   if (title === null) {
     document.title = this._title;
-    return;
+    return this;
   }
 
   document.title = title + this._titleSeparator + this._title;
