@@ -1,9 +1,10 @@
 /**
- * Represents a link with an image.
+ * Represents a link (anchor tag) with an image.
  * @constructor
  * @param {string} url URL for the link.
  * @param {string} src Source URI for the image.
- * @param {string} [alt] Alternative txt for the a tag.
+ * @param {string} [alt] Alternative text for the anchor tag.
+ * @param {string} [title] Title for the anchor tag.
  * @returns {sImageLink} The image link object.
  * @augments sView
  */
