@@ -61,11 +61,11 @@
 <span class='line'> 54</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._title</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 55</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 56</span> </span><span class="COMM">/**
-<span class='line'> 57</span>  * Set the title of this application.
+<span class='line'> 57</span>  * Change the title of this application.
 <span class='line'> 58</span>  * @param {string} title The title to set.
 <span class='line'> 59</span>  * @returns {sApplication} The object to allow method chaining.
 <span class='line'> 60</span>  */</span><span class="WHIT">
-<span class='line'> 61</span> </span><span class="NAME">sApplication.prototype.setTitle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">title</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="NAME">sApplication.prototype.changeTitle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">title</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 62</span> </span><span class="WHIT">  </span><span class="NAME">this._title</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">title</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 63</span> </span><span class="WHIT">  </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 64</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
@@ -150,7 +150,7 @@
 <span class='line'>143</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>144</span> </span><span class="COMM">/**
 <span class='line'>145</span>  * Sets the page title.
-<span class='line'>146</span>  * @param {string} title The title to set. Will be suffixed with the
+<span class='line'>146</span>  * @param {string|null} title The title to set. Will be suffixed with the
 <span class='line'>147</span>  *   application name. If &lt;code>null&lt;/code>, the page title will be set to the
 <span class='line'>148</span>  *   application name.
 <span class='line'>149</span>  * @returns {sApplication} The object to allow method chaining.
@@ -158,7 +158,7 @@
 <span class='line'>151</span> </span><span class="NAME">sApplication.prototype.setTitle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">title</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>152</span> </span><span class="WHIT">  </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">title</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>153</span> </span><span class="WHIT">    </span><span class="NAME">document.title</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._title</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>154</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>155</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>156</span> 
 <span class='line'>157</span> </span><span class="WHIT">  </span><span class="NAME">document.title</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">title</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this._titleSeparator</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this._title</span><span class="PUNC">;</span><span class="WHIT">

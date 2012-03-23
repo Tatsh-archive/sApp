@@ -293,6 +293,15 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sImage.html#render">render</a></b>(force)
+								</div>
+								<div class="description">Render the view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/sImage.html#setAlt">setAlt</a></b>(alt)
 								</div>
 								<div class="description">Set the alternative text for the image.</div>
@@ -302,9 +311,27 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sImage.html#setHeight">setHeight</a></b>(height)
+								</div>
+								<div class="description">Set the height of the DOM element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/sImage.html#setSource">setSource</a></b>(src, onloadHandler)
 								</div>
 								<div class="description">Set the source URI of the image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sImage.html#setWidth">setWidth</a></b>(width)
+								</div>
+								<div class="description">Set the width of the DOM element.</div>
 							</td>
 						</tr>
 					
@@ -346,13 +373,13 @@ ul.inheritsList
 						
 							<dt>
 								<span class="light fixedFont">{string}</span>  <b>src</b>
-								
+								<i>Optional</i>
 							</dt>
 								<dd>Source of the image.</dd>
 						
 							<dt>
 								<span class="light fixedFont">{string}</span>  <b>alt</b>
-								
+								<i>Optional</i>
 							</dt>
 								<dd>Alternative text for the image.</dd>
 						
@@ -384,6 +411,49 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
+					<a name="render"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sImage.html">sImage</a>}</span>
+					<b>render</b>(force)
+					
+					</div>
+					<div class="description">
+						Render the view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>force</b>
+									<i>Optional, Default: false</i>
+								</dt>
+								<dd>Force the re-rendering.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sImage.html">sImage</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name="setAlt"> </a>
 					<div class="fixedFont">
 					
@@ -408,6 +478,49 @@ ul.inheritsList
 									
 								</dt>
 								<dd>The alternative text.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sImage.html">sImage</a>}</span> The ojbect to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setHeight"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sImage.html">sImage</a>}</span>
+					<b>setHeight</b>(height)
+					
+					</div>
+					<div class="description">
+						Set the height of the DOM element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>height</b>
+									
+								</dt>
+								<dd>Height.</dd>
 							
 							</dl>
 						
@@ -467,6 +580,49 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
+								<dd><span class="light fixedFont">{<a href="../symbols/sImage.html">sImage</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setWidth"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sImage.html">sImage</a>}</span>
+					<b>setWidth</b>(width)
+					
+					</div>
+					<div class="description">
+						Set the width of the DOM element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>width</b>
+									
+								</dt>
+								<dd>Width.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
 								<dd><span class="light fixedFont">{<a href="../symbols/sImage.html">sImage</a>}</span> The ojbect to allow method chaining.</dd>
 							
 							</dl>
@@ -488,7 +644,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Mar 22 2012 20:32:19 GMT-0500 (CDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Mar 23 2012 15:04:52 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
