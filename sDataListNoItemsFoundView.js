@@ -7,7 +7,7 @@ var sDataListNoItemsFoundView = function () {
   this.parent.constructor.call(this);
   this._DOMElement = sDoc.newElement('li');
   this._DOMElement.className = 'sdata-list-no-items-found';
-  this._DOMElement.innerHTML = 'No items found.';
+  q(this._DOMElement).setText('No items found.');
   return this;
 };
 sDataListNoItemsFoundView.prototype = new sDataListItem({});

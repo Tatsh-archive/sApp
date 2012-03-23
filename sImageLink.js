@@ -55,11 +55,11 @@ sImageLink.prototype.render = function (force) {
       this._DOMElement = sDoc.newElement('a');
     }
 
-    this._DOMElement.innerHTML = '';
+    q(this._DOMElement).removeChildren();
     this._DOMElement.className = 'hvideo-list-image';
 
     this._DOMElement.setAttribute('href', this._url);
-    this._image.render(force).appendTo(this._DOMElement);
+    this._image.appendTo(this._DOMElement);
 
     this.setRendered(true);
   }
@@ -97,10 +97,10 @@ sImageLink.prototype.getTitle = function (title) {
  */
 sImageLink.prototype.setImage = function (image) {
   this._image = image;
-  this._DOMElement.innerHTML = '';
 
-  // IE needs the image element re-created each time innerHTML is reset
-  this._DOMElement.appendChild(this._image.render(true).getDOMElement());
+  q(this._DOMElement).removeChildren();
+
+  this._DOMElement.appendChild(this._image.getDOMElement());
 
   return this;
 };
