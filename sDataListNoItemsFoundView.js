@@ -10,5 +10,5 @@ var sDataListNoItemsFoundView = function () {
   this._DOMElement.innerHTML = 'No items found.';
   return this;
 };
-sDataListNoItemsFoundView.prototype = new sDataListItem();
+sDataListNoItemsFoundView.prototype = new sDataListItem({});
 sDataListNoItemsFoundView.prototype.parent = sDataListItem.prototype;
