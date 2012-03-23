@@ -10,12 +10,31 @@
 var sImageLink = function (url, src, alt, title) {
   this.parent.constructor.call(this);
 
+  /**
+   * @type sImage
+   * @private
+   */
   this._image = new sImage(src, alt);
 
+  /**
+   * @type string
+   * @private
+   */
   this._title = '';
-  this._DOMElement = document.createElement('a');
-  this._DOMElement.setAttribute('href', url);
-  this._image.appendTo(this._DOMElement);
+
+  /**
+   * @type string
+   * @private
+   */
+  this._url = url;
+
+  /**
+   * @type (Element|null)
+   * @private
+   */
+  this._DOMElement = null;
+
+  this.render();
 
   return this;
 };
@@ -25,6 +44,28 @@ var sImageLink = function (url, src, alt, title) {
  */
 sImageLink.prototype = new sView();
 sImageLink.prototype.parent = sView.prototype;
+/**
+ * Renders the view.
+ * @param {boolean} [force=false] Force re-rendering.
+ * @returns {sImageLink} The object to allow method chaining.
+ */
+sImageLink.prototype.render = function (force) {
+  if (!this.isRendered() || !this._DOMElement || force) {
+    if (!this._DOMElement) {
+      this._DOMElement = sDoc.newElement('a');
+    }
+
+    this._DOMElement.innerHTML = '';
+    this._DOMElement.className = 'hvideo-list-image';
+
+    this._DOMElement.setAttribute('href', this._url);
+    this._image.render(force).appendTo(this._DOMElement);
+
+    this.setRendered(true);
+  }
+
+  return this;
+};
 /**
  * Gets the image object.
  * @returns {sImage} The image object.
@@ -57,6 +98,9 @@ sImageLink.prototype.getTitle = function (title) {
 sImageLink.prototype.setImage = function (image) {
   this._image = image;
   this._DOMElement.innerHTML = '';
-  this._DOMElement.appendChild(this._image.getDOMElement());
+
+  // IE needs the image element re-created each time innerHTML is reset
+  this._DOMElement.appendChild(this._image.render(true).getDOMElement());
+
   return this;
 };
