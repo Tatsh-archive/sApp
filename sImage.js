@@ -2,7 +2,7 @@
  * Represents an image.
  * @constructor
  * @param {string} src Source of the image.
- * @param {string} alt Alternative text for the image.
+ * @param {string} [alt] Alternative text for the image.
  * @returns {sImage} The image object.
  * @augments sView
  */
@@ -14,12 +14,9 @@ var sImage = function (src, alt) {
   }
 
   this._alt = alt;
-  this._title = '';
   this._DOMElement = document.createElement('img');
   this._DOMElement.setAttribute('src', src);
   this._DOMElement.setAttribute('alt', this._alt);
-
-  this._onloadHandler = function () {};
 
   return this;
 };
@@ -66,7 +63,21 @@ sImage.prototype.setAlt = function (alt) {
   this._DOMElement.setAttribute('alt', alt);
   return this;
 };
-// TODO
-// sImage.prototype.setTitle = function (title) {
-//
-// };
+/**
+ * Set the height of the DOM element.
+ * @param {number} height Height.
+ * @returns {sImage} The ojbect to allow method chaining.
+ */
+sImage.prototype.setHeight = function (height) {
+  this._DOMElement.setAttribute('height', height);
+  return this;
+};
+/**
+ * Set the width of the DOM element.
+ * @param {number} width Width.
+ * @returns {sImage} The ojbect to allow method chaining.
+ */
+sImage.prototype.setWidth = function (height) {
+  this._DOMElement.setAttribute('width', height);
+  return this;
+};
