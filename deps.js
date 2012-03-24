@@ -2,19 +2,12 @@
  * Adds placeholder support to older browsers. Does not support password fields
  *   yet.
  * @param {Element} input Input or textarea element.
- * @param {string} [color='#aaa'] Color string. Recommend hash format unless
+ * @param {string} [color=#aaa] Color string. Recommend hash format unless
  *   detecting if the browser has support for rgb/rgba/hsl/hsla/other.
  * @return {Element} The element passed in.
  * @private
  */
 var inputPlaceholder = function (input, color) {
-  if (color && color.toString) {
-    color = color.toString();
-  }
-  else if (typeof color !== 'string') {
-    color = '#aaa';
-  }
-
   /**
    * Tested with:
    * - IE 7
@@ -34,7 +27,7 @@ var inputPlaceholder = function (input, color) {
     return input;
   }
 
-  var defaultColor = input.style.color;
+  var defaultColor = input.style.color || '#000';
   var placeholder = input.getAttribute('placeholder');
   var addEvent = 'addEventListener';
   var event = 'focus';
@@ -49,9 +42,9 @@ var inputPlaceholder = function (input, color) {
 
   if (input.attachEvent) {
     addEvent = 'attachEvent';
-    event = 'onfocus';
-    blurEvent = 'onblur';
-    submitEvent = 'onsubmit';
+    event = 'on' + event;
+    blurEvent = 'on' + blurEvent;
+    submitEvent = 'on' + submitEvent;
   }
 
   input[addEvent](event, function() {
@@ -67,7 +60,7 @@ var inputPlaceholder = function (input, color) {
     if (input.value === '') {
       input.setAttribute('data-placeholder-visible', true);
       input.value = placeholder;
-      input.style.color = color;
+      input.style.color = color && color.toString ? color.toString() : '#aaa';
     } else {
       input.style.color = defaultColor;
       input.removeAttribute('data-placeholder-visible');
