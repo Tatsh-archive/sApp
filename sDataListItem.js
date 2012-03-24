@@ -37,11 +37,3 @@ sDataListItem.prototype = new sView();
 //  * @private
 //  */
 sDataListItem.prototype.constructor = sDataListItem;
-/**
- * @param {Element} element The element to append to.
- * @returns {sDataListItem} The object to allow method chaining.
- */
-sDataListItem.prototype.appendTo = function (element) {
-  element.appendChild(this._DOMElement);
-  return this;
-};
