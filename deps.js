@@ -36,7 +36,7 @@ var inputPlaceholder = function (input, color) {
 
   if (input.value === '' || input.value == placeholder) {
     input.value = placeholder;
-    input.style.color = color;
+    input.style.color = color && color.toString ? color.toString() : '#aaa';
     input.setAttribute('data-placeholder-visible', true);
   }
 
