@@ -48,9 +48,13 @@ sView.prototype.isAppended = function () {
 /**
  * Appends the main element to the element specified.
  * @param {Element} element The element to append to.
+ * @param {boolean} [forceRerender=false] Force re-rendering.
  * @returns {sView} The object to allow method chaining.
  */
-sView.prototype.appendTo = function (element) {
+sView.prototype.appendTo = function (element, forceRerender) {
+  if (forceRerender) {
+    this.render(true);
+  }
   this._isAppended = true;
   this._rendered = true;
   element.appendChild(this._DOMElement);
