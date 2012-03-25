@@ -314,3 +314,11 @@ sForm.prototype.setCSRF = function (csrf) {
   this._CSRFDOMElement.value = csrf;
   return this;
 };
+/**
+ * Get a value of a field on this form.
+ * @param {string} name The name.
+ * @returns {string} The value of the field.
+ */
+sForm.prototype.getValue = function (name) {
+  return this._DOMElement.elements[name];
+};
