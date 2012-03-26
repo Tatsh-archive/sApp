@@ -25,6 +25,12 @@ var sButtonBar = function () {
    */
   this._eventHandlers = {};
 
+  /**
+   * @type Object
+   * @private
+   */
+  this._buttons = {};
+
   return this;
 };
 /**
@@ -59,6 +65,7 @@ sButtonBar.prototype.addButton = function (label, fn) {
 
   this._childElements[label] = realLi;
   this._eventHandlers[label] = fn;
+  this._buttons[label] = button;
 
   button.appendTo(realLi);
   this._DOMElement.appendChild(realLi);
@@ -66,6 +73,17 @@ sButtonBar.prototype.addButton = function (label, fn) {
   this._setClasses();
 
   return this;
+};
+/**
+ * Get an sButton instance by its label.
+ * @param {string} label The label text.
+ * @returns {sButton|null} The sButton instance, or <code>null</code>.
+ */
+sButtonBar.prototype.getButtonByLabel = function (label) {
+  if (this._buttons[label] === undefined) {
+    return null;
+  }
+  return this._buttons[label];
 };
 // TODO Implement.
 // /**
