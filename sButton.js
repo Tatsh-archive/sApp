@@ -141,7 +141,7 @@ sButton.prototype.disable = function (classes) {
  * @param {Array} [classes] Other classes to add.
  * @returns {sButton} The object to allow method chaining.
  */
-sButton.prototype.disable = function (classes) {
+sButton.prototype.enable = function (classes) {
   var oldClasses = this._DOMElement.className.split(' ');
 
   if (classes && classes.length) {
