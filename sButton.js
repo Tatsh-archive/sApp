@@ -37,6 +37,11 @@ var sButton = function (text, fn) {
    * @private
    */
   this._clickHandler = function (event) {
+    if (button.isDisabled()) {
+      event.preventDefault();
+      return false;
+    }
+
     button._userClickHandler(button);
     event.preventDefault();
     return false;
@@ -48,6 +53,9 @@ var sButton = function (text, fn) {
   this._DOMElement.appendChild(document.createTextNode(text));
   q(this._DOMElement).bind('click', this._clickHandler);
   this._setClasses();
+  if (text) {
+    this._DOMElement.id = sHTML.makeFormElementID(text);
+  }
 
   return this;
 };
@@ -113,6 +121,8 @@ sButton.prototype.disable = function (classes) {
   var oldClasses = this._DOMElement.className.split(' ');
   var i;
 
+  this._enabled = false;
+
   if (classes && classes.length) {
     var newClasses = ['sbutton', 'sbutton-disabled'];
     var i;
@@ -130,7 +140,7 @@ sButton.prototype.disable = function (classes) {
     return this;
   }
 
-  this._DOMElement.setAttribute('aria-disabled', false);
+  this._DOMElement.setAttribute('aria-disabled', true);
   this._setClasses();
 
   return this;
@@ -143,6 +153,8 @@ sButton.prototype.disable = function (classes) {
  */
 sButton.prototype.enable = function (classes) {
   var oldClasses = this._DOMElement.className.split(' ');
+
+  this._enabled = true;
 
   if (classes && classes.length) {
     var newClasses = ['sbutton'];
@@ -161,7 +173,7 @@ sButton.prototype.enable = function (classes) {
     return this;
   }
 
-  this._DOMElement.setAttribute('aria-disabled', true);
+  this._DOMElement.setAttribute('aria-disabled', false);
   this._setClasses();
 
   return this;
