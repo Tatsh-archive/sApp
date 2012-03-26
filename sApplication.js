@@ -63,6 +63,18 @@ sApplication.prototype.changeTitle = function (title) {
   return this;
 };
 /**
+ * Get an sApplication instance by its name.
+ * @param {string} name The name.
+ * @returns {sApplication|null} The sApplication instance or <code>null</code>.
+ */
+sApplication.getByName = function (name) {
+  if (sApplication._apps[name] === undefined) {
+    return null;
+  }
+
+  return sApplication._apps[name];
+};
+/**
  * Register a dialog that will be invoked when a the state 'dialog' (in the
  *   hash) is equal to the <code>stateName</code> specified here.
  * @param {string} stateName The state value to match.
