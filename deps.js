@@ -57,7 +57,7 @@ var inputPlaceholder = function (input, color) {
   }, false);
 
   input[addEvent](blurEvent, function() {
-    if (input.value === '') {
+    if (!input.value) {
       input.setAttribute('data-placeholder-visible', true);
       input.value = placeholder;
       input.style.color = color && color.toString ? color.toString() : '#aaa';
