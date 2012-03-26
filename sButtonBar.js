@@ -34,6 +34,19 @@ var sButtonBar = function () {
 sButtonBar.prototype = new sView();
 sButtonBar.prototype.parent = sView.prototype;
 /**
+ * @returns {sButtonBar} The object to allow method chaining.
+ */
+sButtonBar.prototype._setClasses = function () {
+  var el = q(this._DOMElement).getElementsByClassName('last');
+  if (el.length) {
+    for (var i = 0; i < el.length; i++) {
+      el[i].className = '';
+    }
+  }
+  this._DOMElement.childNodes[this._DOMElement.childNodes.length - 1].className = 'last';
+  return this;
+};
+/**
  * Adds a button.
  * @param {string} label Label text.
  * @param {function(sButton)} fn Callback.
@@ -49,6 +62,8 @@ sButtonBar.prototype.addButton = function (label, fn) {
 
   button.appendTo(realLi);
   this._DOMElement.appendChild(realLi);
+
+  this._setClasses();
 
   return this;
 };
