@@ -3,6 +3,7 @@
  * @param {string} [text] Text to display.
  * @param {function(sButton)} [fn] The callback.
  * @returns {sButton} The button object.
+ * @constructor
  */
 var sButton = function (text, fn) {
   this.parent.constructor.call(this);
@@ -50,7 +51,7 @@ var sButton = function (text, fn) {
   // Render
   this._DOMElement.setAttribute('href', '#');
   this._DOMElement.setAttribute('role', 'button');
-  this._DOMElement.appendChild(document.createTextNode(text));
+  this._DOMElement.appendChild(document.createTextNode(this._text));
   q(this._DOMElement).bind('click', this._clickHandler);
   this._setClasses();
   if (text) {
@@ -72,7 +73,9 @@ sButton.prototype.parent = sView.prototype;
  */
 sButton.prototype.setText = function (text) {
   this._text = text ? text : '';
-
+  q(this._DOMElement).removeChildren();
+  this._DOMElement.appendChild(document.createTextNode(this._text));
+  return this;
 };
 /**
  * @returns {sButton} The object to allow method chaining.
@@ -119,7 +122,6 @@ sButton.prototype.isEnabled = function () {
  */
 sButton.prototype.disable = function (classes) {
   var oldClasses = this._DOMElement.className.split(' ');
-  var i;
 
   this._enabled = false;
 
