@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sFormField</title>
+		<title>JsDoc Reference - sButton</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -234,26 +234,24 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sFormField
+				Class sButton
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				
-				<br />Extends
-					<a href="../symbols/sView.html">sView</a>.<br />
 				
 			
 				
 				
 				
-					<br /><i>Defined in: </i> &lt;./sFormField.js&gt;.
+					<br /><i>Defined in: </i> &lt;./sButton.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sFormField.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sButton.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -266,9 +264,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sFormField.html#constructor">sFormField</a></b>()
+								<b><a href="../symbols/sButton.html#constructor">sButton</a></b>(text, fn)
 							</div>
-							<div class="description">Base class for form fields.</div>
+							<div class="description">Represents a button.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -282,7 +280,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sFormField.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sButton.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -295,18 +293,54 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sFormField.html#getFieldDOMElement">getFieldDOMElement</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#disable">disable</a></b>(classes)
 								</div>
-								<div class="description">Get the field DOM element, since fields are wrapped in divs.</div>
+								<div class="description">Disables the button.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sFormField.html#setRequired">setRequired</a></b>(required)
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#enable">enable</a></b>(classes)
 								</div>
-								<div class="description">Set the field's required attribute.</div>
+								<div class="description">Disables the button.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#isDisabled">isDisabled</a></b>()
+								</div>
+								<div class="description">If the button is disabled.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#isEnabled">isEnabled</a></b>()
+								</div>
+								<div class="description">If the button is enabled.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#setClickHandler">setClickHandler</a></b>(fn)
+								</div>
+								<div class="description">Set the click handler function.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sButton.html#setText">setText</a></b>(text)
+								</div>
+								<div class="description">Set the text.</div>
 							</td>
 						</tr>
 					
@@ -314,10 +348,6 @@ ul.inheritsList
 				</table>
 				
 				
-				
-				<dl class="inheritsList">
-				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#isRendered">isRendered</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a>, <a href="../symbols/sView.html#setRendered">setRendered</a></dd>
-				</dl>
 				
 			
 <!-- ============================== events summary ======================== -->
@@ -331,17 +361,34 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sFormField</b>()
+						<b>sButton</b>(text, fn)
 				</div>
 				
 				<div class="description">
-					Base class for form fields.
+					Represents a button.
 					
 				</div>
 				
 				
 				
 				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>text</b>
+								<i>Optional</i>
+							</dt>
+								<dd>Text to display.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{function(sButton)}</span>  <b>fn</b>
+								<i>Optional</i>
+							</dt>
+								<dd>The callback.</dd>
+						
+						</dl>
 					
 					
 					
@@ -350,7 +397,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sFormField.html">sFormField</a>}</span> The form field object.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sButton.html">sButton</a>}</span> The button object.</dd>
 						
 						</dl>
 					
@@ -369,47 +416,16 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="getFieldDOMElement"> </a>
+					<a name="disable"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{Element}</span>
-					<b>getFieldDOMElement</b>()
+					<span class="light">{<a href="../symbols/sButton.html">sButton</a>}</span>
+					<b>disable</b>(classes)
 					
 					</div>
 					<div class="description">
-						Get the field DOM element, since fields are wrapped in divs.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Element}</span> The DOM element.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="setRequired"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{<a href="../symbols/sFormField.html">sFormField</a>}</span>
-					<b>setRequired</b>(required)
-					
-					</div>
-					<div class="description">
-						Set the field's required attribute.
+						Disables the button. Adds a class <code>sbutton-disabled</code> that can
+  be used to style the button in this state.
 						
 						
 					</div>
@@ -421,10 +437,10 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>required</b>
-									
+									<span class="light fixedFont">{Array}</span> <b>classes</b>
+									<i>Optional</i>
 								</dt>
-								<dd>If required.</dd>
+								<dd>Other classes to add.</dd>
 							
 							</dl>
 						
@@ -435,7 +451,201 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{<a href="../symbols/sFormField.html">sFormField</a>}</span> The object to allow method chaining.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sButton.html">sButton</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="enable"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sButton.html">sButton</a>}</span>
+					<b>enable</b>(classes)
+					
+					</div>
+					<div class="description">
+						Disables the button. Adds a class <code>sbutton-disabled</code> that can
+  be used to style the button in this state.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>classes</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Other classes to add.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sButton.html">sButton</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isDisabled"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isDisabled</b>()
+					
+					</div>
+					<div class="description">
+						If the button is disabled.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> If the button is disabled.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isEnabled"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isEnabled</b>()
+					
+					</div>
+					<div class="description">
+						If the button is enabled.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> If the button is enabled.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setClickHandler"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sButton.html">sButton</a>}</span>
+					<b>setClickHandler</b>(fn)
+					
+					</div>
+					<div class="description">
+						Set the click handler function.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function(sButton)}</span> <b>fn</b>
+									
+								</dt>
+								<dd>The callback.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sButton.html">sButton</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setText"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sButton.html">sButton</a>}</span>
+					<b>setText</b>(text)
+					
+					</div>
+					<div class="description">
+						Set the text.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>The text.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sButton.html">sButton</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
