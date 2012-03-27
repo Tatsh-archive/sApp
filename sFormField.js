@@ -51,3 +51,19 @@ sFormField.prototype.setRequired = function (required) {
   this._fieldDOMElement.required = required ? true : false;
   return this;
 };
+/**
+ * Disable the field.
+ * @returns {sFormField} The object to allow method chaining.
+ */
+sFormField.prototype.disable = function () {
+  this._fieldDOMElement.setAttribute('disabled', 'disabled');
+  return this;
+};
+/**
+ * Enable the field.
+ * @returns {sFormField} The object to allow method chaining.
+ */
+sFormField.prototype.enable = function () {
+  this._fieldDOMElement.removeAttribute('disabled');
+  return this;
+};
