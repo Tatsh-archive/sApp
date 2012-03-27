@@ -220,6 +220,8 @@ sForm.prototype.disable = function () {
   var inputs = form.getElementsByTagName('input');
   var textareas = form.getElementsByTagName('textarea');
 
+  form.setAttribute('disabled', 'disabled');
+
   for (var i = 0; i < inputs.length; i++) {
     if (inputs[i].getAttribute('type').toLowerCase() !== 'hidden') {
       inputs[i].setAttribute('disabled', 'disabled');
@@ -228,6 +230,11 @@ sForm.prototype.disable = function () {
 
   for (i = 0; i < textareas.length; i++) {
     textareas[i].setAttribute('disabled', 'disabled');
+  }
+
+  for (i = 0; i < this._buttons.length; i++) {
+    this._buttons[i].setAttribute('disabled', 'disabled');
+    q(this._buttons[i]).addClass('form-submit-disabled');
   }
 
   return this;
@@ -247,6 +254,11 @@ sForm.prototype.enable = function () {
 
   for (i = 0; i < textareas.length; i++) {
     textareas[i].removeAttribute('disabled');
+  }
+
+  for (i = 0; i < this._buttons.length; i++) {
+    this._buttons[i].removeAttribute('disabled');
+    q(this._buttons[i]).removeClass('form-submit-disabled');
   }
 
   return this;
