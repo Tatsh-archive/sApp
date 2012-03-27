@@ -248,6 +248,8 @@ sForm.prototype.enable = function () {
   var inputs = form.getElementsByTagName('input');
   var textareas = form.getElementsByTagName('textarea');
 
+  form.removeAttribute('disabled');
+
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].removeAttribute('disabled');
   }
