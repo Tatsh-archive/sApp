@@ -43,13 +43,17 @@ sButtonBar.prototype.parent = sView.prototype;
  * @returns {sButtonBar} The object to allow method chaining.
  */
 sButtonBar.prototype._setClasses = function () {
-  var el = q(this._DOMElement).getElementsByClassName('last');
-  if (el.length) {
-    for (var i = 0; i < el.length; i++) {
-      el[i].className = '';
+  var els = this._DOMElement.getElementsByTagName('li');
+
+  if (els.length) {
+    for (var i = 0; i < els.length; i++) {
+      q(els[i]).addClass('item-' + (i+1)).removeClass('last').removeClass('first');
     }
+
+    q(els[0]).addClass('first');
+    q(els[els.length - 1]).addClass('last');
   }
-  this._DOMElement.childNodes[this._DOMElement.childNodes.length - 1].className = 'last';
+
   return this;
 };
 /**
@@ -84,6 +88,31 @@ sButtonBar.prototype.getButtonByLabel = function (label) {
     return null;
   }
   return this._buttons[label];
+};
+/**
+ * Add a custom view. The view is expected to extend off sView.
+ * @param {sView} view An sView instance or subclass of sView instance.
+ * @param {string} [name] Name of the view for later retrieval.
+ * @return {sButtonBar} The object to allow method chaining.
+ */
+sButtonBar.prototype.addCustomView = function (view, name) {
+  var li = sDoc.newElement('li');
+  var nameIsRandom = false;
+  li.appendChild(view.getDOMElement());
+  this._DOMElement.appendChild(li);
+  this._setClasses();
+
+  if (!name) {
+    name = fCryptography.randomString();
+    nameIsRandom = true;
+  }
+
+  this._subViews[name] = view;
+  if (!nameIsRandom) {
+    li.id = sHTML.makeFormElementID(name);
+  }
+
+  return this;
 };
 // TODO Implement.
 // /**
