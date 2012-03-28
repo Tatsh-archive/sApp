@@ -8,6 +8,7 @@
   "sDataListNoItemsFoundView.js",
   "sDataList.js",
   "sFormField.js",
+  "sOptionField.js",
   "sTextField.js",
   "sEmailField.js",
   "sPasswordField.js",
