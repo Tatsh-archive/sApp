@@ -59,16 +59,8 @@ var sForm = function () {
   var instance = this;
 
   q(this._DOMElement).bind('submit', function (event) {
-    var fns = instance.getSubmitHandlers();
-    var ret = true;
-
-    for (var i = 0; i < fns.length; i++) {
-      if (!fns[i](instance)) {
-        ret = false;
-      }
-    }
-
-    if (!instance.usesDefaultEvent() || !ret) {
+    var ret = sForm.callSubmitHandlers(instance);
+    if (!ret) {
       event.preventDefault();
       return false;
     }
@@ -82,6 +74,31 @@ var sForm = function () {
  */
 sForm.prototype = new sView();
 sForm.prototype.parent = sView.prototype;
+/**
+ * Calls all the submit handlers for the form.
+ * @param {sForm} form The sForm instance.
+ * @returns {boolean} If the default action should occur.
+ */
+sForm.callSubmitHandlers = function (form) {
+  var fns = form.getSubmitHandlers();
+  var ret = true;
+
+  if (!fns.length) {
+    return ret;
+  }
+
+  for (var i = 0; i < fns.length; i++) {
+    if (!fns[i](form)) {
+      ret = false;
+    }
+  }
+
+  if (!form.usesDefaultEvent() || !ret) {
+    ret = false;
+  }
+
+  return ret;
+};
 /**
  * Add a field.
  * @param {sTextAreaField|sPasswordField|sTextField} field The field to add.
@@ -219,6 +236,7 @@ sForm.prototype.disable = function () {
   var form = this._DOMElement;
   var inputs = form.getElementsByTagName('input');
   var textareas = form.getElementsByTagName('textarea');
+  var selects = form.getElementsByTagName('select');
 
   form.setAttribute('disabled', 'disabled');
 
@@ -230,6 +248,10 @@ sForm.prototype.disable = function () {
 
   for (i = 0; i < textareas.length; i++) {
     textareas[i].setAttribute('disabled', 'disabled');
+  }
+
+  for (i = 0; i < selects.length; i++) {
+    selects[i].setAttribute('disabled', 'disabled');
   }
 
   for (i = 0; i < this._buttons.length; i++) {
@@ -247,6 +269,7 @@ sForm.prototype.enable = function () {
   var form = this._DOMElement;
   var inputs = form.getElementsByTagName('input');
   var textareas = form.getElementsByTagName('textarea');
+  var selects = form.getElementsByTagName('select');
 
   form.removeAttribute('disabled');
 
@@ -256,6 +279,10 @@ sForm.prototype.enable = function () {
 
   for (i = 0; i < textareas.length; i++) {
     textareas[i].removeAttribute('disabled');
+  }
+
+  for (i = 0; i < selects.length; i++) {
+    selects[i].removeAttribute('disabled');
   }
 
   for (i = 0; i < this._buttons.length; i++) {
@@ -280,6 +307,7 @@ sForm.prototype.submitByAJAX = function (cb, errorCb, dataType, isFileUpload) {
   var form = this._DOMElement;
   var inputs = form.getElementsByTagName('input');
   var textareas = form.getElementsByTagName('textarea');
+  var selects = form.getElementsByTagName('select');
   var type;
   var name;
 
@@ -296,6 +324,14 @@ sForm.prototype.submitByAJAX = function (cb, errorCb, dataType, isFileUpload) {
       else {
         postData[name] = inputs[i].value;
       }
+    }
+  }
+
+  for (i = 0; i < selects.length; i++) {
+    name = selects[i].getAttribute('name');
+
+    if (name) {
+      postData[name] = selects[i].value;
     }
   }
 
@@ -335,4 +371,10 @@ sForm.prototype.setCSRF = function (csrf) {
  */
 sForm.prototype.getValue = function (name) {
   return this._DOMElement.elements[name];
+};
+/**
+ * Submit the form by normal means.
+ */
+sForm.prototype.submit = function () {
+  this._DOMElement.submit();
 };
