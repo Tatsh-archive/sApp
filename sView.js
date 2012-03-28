@@ -19,6 +19,12 @@ var sView = function () {
    * @private
    */
   this._rendered = false;
+  /**
+   * @type Object
+   * @private
+   */
+  this._subViews = {};
+
   return this;
 };
 /**
@@ -105,4 +111,34 @@ sView.prototype.insertAfterId = function (id) {
   }
 
   return this;
+};
+/**
+ * Add a custom view. The view is expected to extend off sView.
+ * @param {sView} view An sView instance or subclass of sView instance.
+ * @param {string} [name] Name of the view for later retrieval.
+ * @return {sView} The object to allow method chaining.
+ */
+sView.prototype.addCustomView = function (view, name) {
+  if (!this._DOMElement) {
+    return this;
+  }
+
+  if (name) {
+    this._subViews[name] = view;
+  }
+
+  this._DOMElement.appendChild(view.getDOMElement());
+
+  return this;
+};
+/**
+ * Get a custom view by its name assigned.
+ * @param {string} name Name of the view.
+ * @returns {sView|null} The sView instance of <code>null</code>.
+ */
+sView.prototype.getViewByName = function (name) {
+  if (this._subViews[name] === undefined) {
+    return null;
+  }
+  return this._subViews[name];
 };
