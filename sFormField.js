@@ -14,6 +14,18 @@ var sFormField = function () {
   this._fieldDOMElement = document.createElement('input');
 
   /**
+   * @type Element
+   * @private
+   */
+  this._labelDOMElement = sDoc.newElement('label');
+
+  /**
+   * @type boolean
+   * @private
+   */
+  this._labelIsAppended = false;
+
+  /**
    * @type string
    * @private
    */
@@ -65,5 +77,28 @@ sFormField.prototype.disable = function () {
  */
 sFormField.prototype.enable = function () {
   this._fieldDOMElement.removeAttribute('disabled');
+  return this;
+};
+/**
+ * Sets the label text.
+ * @param {string|null} text If <code>null</code>, remove the label.
+ * @returns {sFormField} The object to allow method chaining.
+ */
+sFormField.prototype.setLabel = function (text) {
+  if (text === null) {
+    if (this._labelIsAppended) {
+      this._DOMElement.removeChild(this._labelDOMElement);
+      this._labelIsAppended = false;
+    }
+    return this;
+  }
+
+  q(this._labelDOMElement).removeChildren().setText(text);
+
+  if (!this._labelIsAppended) {
+    this._DOMElement.insertBefore(this._labelDOMElement, this._fieldDOMElement);
+    this._labelIsAppended = true;
+  }
+
   return this;
 };
