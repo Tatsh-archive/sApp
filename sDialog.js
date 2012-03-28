@@ -199,7 +199,13 @@ sDialog.prototype.addButton = function (label, formToSubmit) {
   button.className = 'form-submit';
 
   q(button).bind('click', function (event) {
-    formToSubmit.getDOMElement().submit();
+    var ret = sForm.callSubmitHandlers(formToSubmit);
+    if (ret === false) {
+      event.preventDefault();
+      return false;
+    }
+
+    formToSubmit.submit();
   });
 
   this._buttons.push(button);
@@ -214,6 +220,28 @@ sDialog.prototype.addButton = function (label, formToSubmit) {
  */
 sDialog.prototype.setMinYOnResize = function (y) {
   this._minYOnResize = y;
+  return this;
+};
+/**
+ * Disable all the buttons.
+ * @returns {sDialog} The object to allow method chaining.
+ */
+sDialog.prototype.disableButtons = function () {
+  for (var i = 0; i < this._buttons.length; i++) {
+    this._buttons[i].setAttribute('disabled', 'disabled');
+    this._buttons[i].className = 'form-submit form-submit-disabled';
+  }
+  return this;
+};
+/**
+ * Enable all the buttons.
+ * @returns {sDialog} The object to allow method chaining.
+ */
+sDialog.prototype.enableButtons = function () {
+  for (var i = 0; i < this._buttons.length; i++) {
+    this._buttons[i].removeAttribute('disabled');
+    this._buttons[i].className = 'form-submit';
+  }
   return this;
 };
 /**
