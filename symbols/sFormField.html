@@ -215,6 +215,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/sImageLink.html">sImageLink</a></li>
 	
+	<li><a href="../symbols/sOptionField.html">sOptionField</a></li>
+	
 	<li><a href="../symbols/sOverlayView.html">sOverlayView</a></li>
 	
 	<li><a href="../symbols/sPasswordField.html">sPasswordField</a></li>
@@ -295,9 +297,36 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sFormField.html#disable">disable</a></b>()
+								</div>
+								<div class="description">Disable the field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sFormField.html#enable">enable</a></b>()
+								</div>
+								<div class="description">Enable the field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/sFormField.html#getFieldDOMElement">getFieldDOMElement</a></b>()
 								</div>
 								<div class="description">Get the field DOM element, since fields are wrapped in divs.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sFormField.html#setLabel">setLabel</a></b>(text)
+								</div>
+								<div class="description">Sets the label text.</div>
 							</td>
 						</tr>
 					
@@ -316,7 +345,7 @@ ul.inheritsList
 				
 				
 				<dl class="inheritsList">
-				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#isRendered">isRendered</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a>, <a href="../symbols/sView.html#setRendered">setRendered</a></dd>
+				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#addCustomView">addCustomView</a>, <a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#getViewByName">getViewByName</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#isRendered">isRendered</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a>, <a href="../symbols/sView.html#setRendered">setRendered</a></dd>
 				</dl>
 				
 			
@@ -369,6 +398,70 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
+					<a name="disable"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sFormField.html">sFormField</a>}</span>
+					<b>disable</b>()
+					
+					</div>
+					<div class="description">
+						Disable the field.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sFormField.html">sFormField</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="enable"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sFormField.html">sFormField</a>}</span>
+					<b>enable</b>()
+					
+					</div>
+					<div class="description">
+						Enable the field.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sFormField.html">sFormField</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name="getFieldDOMElement"> </a>
 					<div class="fixedFont">
 					
@@ -393,6 +486,49 @@ ul.inheritsList
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{Element}</span> The DOM element.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setLabel"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sFormField.html">sFormField</a>}</span>
+					<b>setLabel</b>(text)
+					
+					</div>
+					<div class="description">
+						Sets the label text.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string|null}</span> <b>text</b>
+									
+								</dt>
+								<dd>If <code>null</code>, remove the label.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sFormField.html">sFormField</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
@@ -456,7 +592,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Mar 26 2012 17:16:24 GMT-0500 (CDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 28 2012 01:33:04 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
