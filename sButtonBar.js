@@ -2,6 +2,7 @@
  * Represents a set of buttons.
  * @constructor
  * @returns {sButtonBar} The button bar object.
+ * @augments sView
  */
 var sButtonBar = function () {
   this.parent.constructor.call(this);

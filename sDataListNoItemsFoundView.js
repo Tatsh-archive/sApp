@@ -2,6 +2,7 @@
  * A view for when no items are found in a data source.
  * @constructor
  * @returns {sDataListNoItemsFoundView} The view.
+ * @augments sDataListItem
  */
 var sDataListNoItemsFoundView = function () {
   this.parent.constructor.call(this);

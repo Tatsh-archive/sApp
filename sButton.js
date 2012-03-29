@@ -4,6 +4,7 @@
  * @param {function(sButton)} [fn] The callback.
  * @returns {sButton} The button object.
  * @constructor
+ * @augments sView
  */
 var sButton = function (text, fn) {
   this.parent.constructor.call(this);

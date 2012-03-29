@@ -4,7 +4,7 @@
  * @param {string} name Name of the field.
  * @param {Array} [options] Array of objects that have keys 'value' and 'label'.
  * @returns {sOptionField} The option field object.
- * @augments {sFormField}
+ * @augments sFormField
  */
 var sOptionField = function (name, options) {
   this.parent.constructor.call(this);
