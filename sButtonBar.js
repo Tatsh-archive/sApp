@@ -114,6 +114,30 @@ sButtonBar.prototype.addCustomView = function (view, name) {
 
   return this;
 };
+/**
+ * Disable all buttons.
+ * @return {sButtonBar} The object to allow method chaining.
+ */
+sButtonBar.prototype.disableButtons = function () {
+  for (var key in this._buttons) {
+    if (this._buttons.hasOwnProperty(key)) {
+      this._buttons[key].disable();
+    }
+  }
+  return this;
+};
+/**
+ * Enable all buttons.
+ * @return {sButtonBar} The object to allow method chaining.
+ */
+sButtonBar.prototype.enableButtons = function () {
+  for (var key in this._buttons) {
+    if (this._buttons.hasOwnProperty(key)) {
+      this._buttons[key].enable();
+    }
+  }
+  return this;
+};
 // TODO Implement.
 // /**
 //  * Removes a button.
