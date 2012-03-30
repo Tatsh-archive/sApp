@@ -42,11 +42,12 @@ sTextField.prototype.parent = sFormField.prototype;
 /**
  * Set the placeholder text of the field.
  * @param {string} placeholder The placeholder text.
+ * @param {string} [color] Color code for the fallback.
  * @returns {sTextAreaField} The object to allow method chaining.
  */
-sTextField.prototype.setPlaceholder = function (placeholder) {
+sTextField.prototype.setPlaceholder = function (placeholder, color) {
   this._fieldDOMElement.setAttribute('placeholder', placeholder);
-  inputPlaceholder(this._fieldDOMElement);
+  inputPlaceholder(this._fieldDOMElement, color);
   return this;
 };
 // TODO
