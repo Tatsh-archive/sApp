@@ -11,8 +11,28 @@ var sButtonBar = function () {
    * @type Element
    * @private
    */
-  this._DOMElement = sDoc.newElement('ul');
-  this._DOMElement.className = 'sbutton-bar';
+  this._labelDOMElement = sDoc.newElement('label');
+  this._labelDOMElement.className = 'sbutton-bar-label';
+
+  /**
+   * @type string
+   * @private
+   */
+  this._labelText = '';
+
+  /**
+   * @type Element
+   * @private
+   */
+  this._DOMElement = sDoc.newElement('div');
+  this._DOMElement.className = 'sbutton-bar-container';
+
+  /**
+   * @type Element
+   * @private
+   */
+  this._ulDOMElement = sDoc.newElement('ul');
+  this._ulDOMElement.className = 'sbutton-bar';
 
   /**
    * @type Object
@@ -32,6 +52,8 @@ var sButtonBar = function () {
    */
   this._buttons = {};
 
+  this._DOMElement.appendChild(this._ulDOMElement);
+
   return this;
 };
 /**
@@ -44,7 +66,7 @@ sButtonBar.prototype.parent = sView.prototype;
  * @returns {sButtonBar} The object to allow method chaining.
  */
 sButtonBar.prototype._setClasses = function () {
-  var els = this._DOMElement.getElementsByTagName('li');
+  var els = this._ulDOMElement.getElementsByTagName('li');
 
   if (els.length) {
     for (var i = 0; i < els.length; i++) {
@@ -73,7 +95,7 @@ sButtonBar.prototype.addButton = function (label, fn) {
   this._buttons[label] = button;
 
   button.appendTo(realLi);
-  this._DOMElement.appendChild(realLi);
+  this._ulDOMElement.appendChild(realLi);
 
   this._setClasses();
 
@@ -97,20 +119,11 @@ sButtonBar.prototype.getButtonByLabel = function (label) {
  * @return {sButtonBar} The object to allow method chaining.
  */
 sButtonBar.prototype.addCustomView = function (view, name) {
-  var li = sDoc.newElement('li');
   var nameIsRandom = false;
-  li.appendChild(view.getDOMElement());
-  this._DOMElement.appendChild(li);
-  this._setClasses();
+  this._DOMElement.appendChild(view.getDOMElement());
 
-  if (!name) {
-    name = fCryptography.randomString();
-    nameIsRandom = true;
-  }
-
-  this._subViews[name] = view;
-  if (!nameIsRandom) {
-    li.id = sHTML.makeFormElementID(name);
+  if (name) {
+    this._subViews[name] = view;
   }
 
   return this;
@@ -137,6 +150,31 @@ sButtonBar.prototype.enableButtons = function () {
       this._buttons[key].enable();
     }
   }
+  return this;
+};
+/**
+ * Sets the label text. If the label is not appended, it will be after calling
+ *   this function with a non-zero length string.
+ * @param {string} text Text to set. If a false-like value, the label will be
+ *   removed.
+ * @return {sButtonBar} The object to allow method chaining.
+ */
+sButtonBar.prototype.setLabelText = function (text) {
+  if (!text) {
+    this._labelText = '';
+    if (this._labelDOMElement.parentElement) {
+      this._labelDOMElement.parentElement.removeChild(this._labelDOMElement);
+    }
+    return this;
+  }
+
+  this._labelText = text;
+  q(this._labelDOMElement).setText(this._labelText);
+
+  if (!this._labelDOMElement.parentElement) {
+    this._DOMElement.insertBefore(this._labelDOMElement, this._ulDOMElement);
+  }
+
   return this;
 };
 // TODO Implement.
