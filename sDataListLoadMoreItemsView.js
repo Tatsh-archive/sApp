@@ -2,6 +2,8 @@
  * Represents a button at the bottom of an sDataList for loading more content
  *   (advancing to the next page).
  * @param {string} [text] The text for the button.
+ * @returns {sDataListLoadMoreItemsView} The object.
+ * @constructor
  */
 var sDataListLoadMoreItemsView = function (text) {
   this.parent.constructor.call(this);
