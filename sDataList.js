@@ -246,3 +246,27 @@ sDataList.prototype.setCurrentSort = function (label) {
 sDataList.prototype.getContainerDOMElement = function () {
   return this._mainDOMElement;
 };
+/**
+ * Adds data from the specified page number.
+ * @param {number} page Page number.
+ * @returns {sDataList} The object to allow method chaining.
+ */
+sDataList.prototype.addData = function (page) {
+  return this;
+};
+/**
+ * Appends the next page of data.
+ * @returns {sDataList} The object to allow method chaining.
+ */
+sDataList.prototype.appendNextPage = function () {
+  this._pageNumber += 1;
+  return this.addData(this._pageNumber);
+};
+/**
+ * Removes the last item in the list.
+ * @returns {sDataList} The object to allow method chaining.
+ */
+sDataList.prototype.removeLastItem = function () {
+  this._data.pop();
+  return this.reloadData(false);
+};
