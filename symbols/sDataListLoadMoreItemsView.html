@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sOptionField</title>
+		<title>JsDoc Reference - sDataListLoadMoreItemsView</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -238,26 +238,24 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sOptionField
+				Class sDataListLoadMoreItemsView
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				
-				<br />Extends
-					<a href="../symbols/sFormField.html">sFormField</a>.<br />
 				
 			
 				
 				
 				
-					<br /><i>Defined in: </i> &lt;./sOptionField.js&gt;.
+					<br /><i>Defined in: </i> &lt;./sDataListLoadMoreItemsView.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sOptionField.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sDataListLoadMoreItemsView.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -270,9 +268,10 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sOptionField.html#constructor">sOptionField</a></b>(name, options)
+								<b><a href="../symbols/sDataListLoadMoreItemsView.html#constructor">sDataListLoadMoreItemsView</a></b>(text)
 							</div>
-							<div class="description">Represents a &lt;select&gt; field.</div>
+							<div class="description">Represents a button at the bottom of an sDataList for loading more content
+  (advancing to the next page).</div>
 						</td>
 					</tr>
 				</tbody>
@@ -286,11 +285,38 @@ ul.inheritsList
 			
 				
 				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sDataListLoadMoreItemsView.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataListLoadMoreItemsView.html#render">render</a></b>(force)
+								</div>
+								<div class="description">Renders the view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataListLoadMoreItemsView.html#setControlledList">setControlledList</a></b>(list)
+								</div>
+								<div class="description">Set the sDataList instance that this button controls.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
 				
 				
-				<dl class="inheritsList">
-				<dt>Methods borrowed from class <a href="../symbols/sFormField.html">sFormField</a>: </dt><dd><a href="../symbols/sFormField.html#disable">disable</a>, <a href="../symbols/sFormField.html#enable">enable</a>, <a href="../symbols/sFormField.html#getFieldDOMElement">getFieldDOMElement</a>, <a href="../symbols/sFormField.html#setLabel">setLabel</a>, <a href="../symbols/sFormField.html#setRequired">setRequired</a></dd><dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#addCustomView">addCustomView</a>, <a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#getViewByName">getViewByName</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#isRendered">isRendered</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a>, <a href="../symbols/sView.html#setRendered">setRendered</a></dd>
-				</dl>
 				
 			
 <!-- ============================== events summary ======================== -->
@@ -304,11 +330,12 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sOptionField</b>(name, options)
+						<b>sDataListLoadMoreItemsView</b>(text)
 				</div>
 				
 				<div class="description">
-					Represents a &lt;select&gt; field.
+					Represents a button at the bottom of an sDataList for loading more content
+  (advancing to the next page).
 					
 				</div>
 				
@@ -320,16 +347,10 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{string}</span>  <b>name</b>
-								
-							</dt>
-								<dd>Name of the field.</dd>
-						
-							<dt>
-								<span class="light fixedFont">{Array}</span>  <b>options</b>
+								<span class="light fixedFont">{string}</span>  <b>text</b>
 								<i>Optional</i>
 							</dt>
-								<dd>Array of objects that have keys 'value' and 'label'.</dd>
+								<dd>The text for the button.</dd>
 						
 						</dl>
 					
@@ -340,7 +361,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sOptionField.html">sOptionField</a>}</span> The option field object.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a>}</span> The object.</dd>
 						
 						</dl>
 					
@@ -354,6 +375,97 @@ ul.inheritsList
 			
 
 <!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="render"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a>}</span>
+					<b>render</b>(force)
+					
+					</div>
+					<div class="description">
+						Renders the view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd>Force re-rendering.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setControlledList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a>}</span>
+					<b>setControlledList</b>(list)
+					
+					</div>
+					<div class="description">
+						Set the sDataList instance that this button controls.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> <b>list</b>
+									
+								</dt>
+								<dd>The list.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
 			
 			
 <!-- ============================== event details ========================= -->		

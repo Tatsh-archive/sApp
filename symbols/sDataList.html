@@ -201,6 +201,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/sDataListItem.html">sDataListItem</a></li>
 	
+	<li><a href="../symbols/sDataListLoadMoreItemsView.html">sDataListLoadMoreItemsView</a></li>
+	
 	<li><a href="../symbols/sDataListNoItemsFoundView.html">sDataListNoItemsFoundView</a></li>
 	
 	<li><a href="../symbols/sDialog.html">sDialog</a></li>
@@ -297,9 +299,27 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#addData">addData</a></b>(page)
+								</div>
+								<div class="description">Adds data from the specified page number.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/sDataList.html#addSortButton">addSortButton</a></b>(label, fn)
 								</div>
 								<div class="description">Adds a category button to sort with.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#appendNextPage">appendNextPage</a></b>()
+								</div>
+								<div class="description">Appends the next page of data.</div>
 							</td>
 						</tr>
 					
@@ -390,6 +410,15 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/sDataList.html#reloadData">reloadData</a></b>()
 								</div>
 								<div class="description">Reloads the data from the source with typical AJAX.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sDataList.html#removeLastItem">removeLastItem</a></b>()
+								</div>
+								<div class="description">Removes the last item in the list.</div>
 							</td>
 						</tr>
 					
@@ -542,6 +571,49 @@ When extending, before sure to override the decodeDataToItems() method.
 					Method Detail
 				</div>
 				
+					<a name="addData"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>addData</b>(page)
+					
+					</div>
+					<div class="description">
+						Adds data from the specified page number.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>page</b>
+									
+								</dt>
+								<dd>Page number.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name="addSortButton"> </a>
 					<div class="fixedFont">
 					
@@ -584,6 +656,38 @@ When extending, before sure to override the decodeDataToItems() method.
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The data list object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="appendNextPage"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>appendNextPage</b>()
+					
+					</div>
+					<div class="description">
+						Appends the next page of data.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
@@ -938,6 +1042,38 @@ When extending, before sure to override the decodeDataToItems() method.
 							<dt class="heading">Returns:</dt>
 							
 								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The data list object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeLastItem"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sDataList.html">sDataList</a>}</span>
+					<b>removeLastItem</b>()
+					
+					</div>
+					<div class="description">
+						Removes the last item in the list.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sDataList.html">sDataList</a>}</span> The object to allow method chaining.</dd>
 							
 							</dl>
 						
@@ -1348,7 +1484,7 @@ When extending, before sure to override the decodeDataToItems() method.
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 28 2012 20:03:14 GMT-0500 (CDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Mar 31 2012 06:13:23 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>
