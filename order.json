@@ -6,6 +6,7 @@
   "sButtonBar.js",
   "sDataListItem.js",
   "sDataListNoItemsFoundView.js",
+  "sDataListLoadMoreItemsView.js",
   "sDataList.js",
   "sFormField.js",
   "sOptionField.js",
