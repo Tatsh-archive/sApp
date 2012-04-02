@@ -51,6 +51,11 @@ var sOverlayView = function () {
     el.style.width = sWin.getWidth() + 'px';
   });
 
+  // Always remove the dialog state by default
+  q(this._DOMElement).bind('click', function () {
+    sHistory.removeState('dialog');
+  });
+
   return this;
 };
 /**
