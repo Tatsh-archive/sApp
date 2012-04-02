@@ -1,7 +1,7 @@
 /**
  * Application.
  * @param {string} title Title of the application.
- * @param {function(sApplication)} The function to call when the page loads.
+ * @param {function()} loadedCallback The function to call when the page loads.
  * @returns {sApplication} The application object.
  * @constructor
  */
@@ -176,7 +176,7 @@ sApplication.prototype.setTitle = function (title) {
 };
 /**
  * This method will run on the page's DOMContentLoaded event.
- * @param {function()} The function to call.
+ * @param {function()} fn The function to call.
  * @returns {sApplication} The object to allow method chaining.
  */
 sApplication.prototype.setLoadedCallback = function (fn) {
@@ -186,20 +186,23 @@ sApplication.prototype.setLoadedCallback = function (fn) {
 
   var instance = this;
   this._loadedCallback = function () {
-    loadedCallback.call(instance);
+    fn.call(instance);
     sHistory.start();
   };
 
   sDoc.bind('DOMContentLoaded', this._loadedCallback, false);
+
+  return this;
 };
 /**
  * If the application has any state as determined by <code>sHistory</code>.
- * @param {Object} [states] Key-value pairs of states to check. The key is the
- *   name of the state and the value is the type.
+ * @param {Array} [states] Array of strings to check. Each string is a state
+ *   name.
+ * @returns {boolean} If the application has a state.
  */
 sApplication.prototype.hasState = function (states) {
   var type, stateName;
-  var ret = sHistory.getState();
+  var ret = /** @type boolean */ sHistory.getState();
   var lastCharIsEqual = location.hash[location.hash.length - 1] === '=';
 
   if (!ret && lastCharIsEqual) {
@@ -211,7 +214,7 @@ sApplication.prototype.hasState = function (states) {
       if (states.hasOwnProperty(key)) {
         stateName = key;
         type = states[key];
-        ret = sHistory.getState(stateName, type);
+        ret = /** @type boolean */ sHistory.getState(stateName, 'bool');
       }
     }
   }
