@@ -1,10 +1,11 @@
 /**
  * Application.
  * @param {string} title Title of the application.
+ * @param {function(sApplication)} The function to call when the page loads.
  * @returns {sApplication} The application object.
  * @constructor
  */
-var sApplication = function (title) {
+var sApplication = function (title, loadedCallback) {
   this._title = title;
   this._dialogs = {};
 
@@ -35,6 +36,21 @@ var sApplication = function (title) {
    * @private
    */
   this._titleSeparator = ' | ';
+
+  /**
+   * @type (function()|null)
+   * @private
+   */
+  this._loadedCallback = null;
+
+  if (loadedCallback) {
+    var instance = this;
+    this._loadedCallback = function () {
+      loadedCallback.call(instance);
+      sHistory.start();
+    };
+    sDoc.bind('DOMContentLoaded', this._loadedCallback, false);
+  }
 
   sApplication._apps[title] = this;
 
@@ -98,24 +114,11 @@ sApplication.prototype.getDialogByName = function (name) {
   return null;
 };
 /**
- * Begin the application. This just calls <code>sHistory.start()</code> if it
- *   has not been started yet.
- * @returns {sApplication} The object to allow method chaining.
- * @see sHistory#start
- */
-sApplication.prototype.main = function () {
-  if (!this._started) {
-    sHistory.start();
-    this._started = true;
-  }
-  return this;
-};
-/**
  * States listening to.
  * @type Object
  * @private
  */
-sApplication._statesListeningOn = {};
+sApplication.prototype._statesListeningOn = {};
 /**
  * Add a state listener on a particular key.
  * @param {string} key Key to listen for.
@@ -126,7 +129,9 @@ sApplication._statesListeningOn = {};
  * @returns {sApplication} The object to allow method chaining.
  */
 sApplication.prototype.addStateListener = function (key, func, type) {
-  sApplication._statesListeningOn[key] = null;
+  this._statesListeningOn[key] = null;
+
+  var instance = this;
 
   if (type === undefined) {
     type = 'string';
@@ -134,8 +139,8 @@ sApplication.prototype.addStateListener = function (key, func, type) {
 
   sHistory.addEventListener(function () {
     var value = sHistory.getState(key, type);
-    var lastState = sApplication._statesListeningOn[key];
-    sApplication._statesListeningOn[key] = value;
+    var lastState = instance._statesListeningOn[key];
+    instance._statesListeningOn[key] = value;
 
     if (value === null) {
       return;
@@ -168,4 +173,48 @@ sApplication.prototype.setTitle = function (title) {
 
   document.title = title + this._titleSeparator + this._title;
   return this;
+};
+/**
+ * This method will run on the page's DOMContentLoaded event.
+ * @param {function()} The function to call.
+ * @returns {sApplication} The object to allow method chaining.
+ */
+sApplication.prototype.setLoadedCallback = function (fn) {
+  if (this._loadedCallback) {
+    sDoc.unbind('DOMContentLoaded', this._loadedCallback, false);
+  }
+
+  var instance = this;
+  this._loadedCallback = function () {
+    loadedCallback.call(instance);
+    sHistory.start();
+  };
+
+  sDoc.bind('DOMContentLoaded', this._loadedCallback, false);
+};
+/**
+ * If the application has any state as determined by <code>sHistory</code>.
+ * @param {Object} [states] Key-value pairs of states to check. The key is the
+ *   name of the state and the value is the type.
+ */
+sApplication.prototype.hasState = function (states) {
+  var type, stateName;
+  var ret = sHistory.getState();
+  var lastCharIsEqual = location.hash[location.hash.length - 1] === '=';
+
+  if (!ret && lastCharIsEqual) {
+    return false;
+  }
+
+  if (states) {
+    for (var key in states) {
+      if (states.hasOwnProperty(key)) {
+        stateName = key;
+        type = states[key];
+        ret = sHistory.getState(stateName, type);
+      }
+    }
+  }
+
+  return ret;
 };
