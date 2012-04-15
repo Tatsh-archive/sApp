@@ -52,6 +52,15 @@ sView.prototype.isAppended = function () {
   return this._isAppended;
 };
 /**
+ * Set if the DOM element is appended.
+ *
+ * @returns {sView} The object to allow method chaining.
+ */
+sView.prototype.setAppended = function (bool) {
+  this._isAppended = bool ? true : false;
+  return this;
+};
+/**
  * Appends the main element to the element specified.
  * @param {Element} element The element to append to.
  * @param {boolean} [forceRerender=false] Force re-rendering.
