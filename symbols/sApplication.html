@@ -197,6 +197,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/sButtonBar.html">sButtonBar</a></li>
 	
+	<li><a href="../symbols/sCustomField.html">sCustomField</a></li>
+	
 	<li><a href="../symbols/sDataList.html">sDataList</a></li>
 	
 	<li><a href="../symbols/sDataListItem.html">sDataListItem</a></li>
@@ -213,9 +215,13 @@ ul.inheritsList
 	
 	<li><a href="../symbols/sFormField.html">sFormField</a></li>
 	
+	<li><a href="../symbols/sHeader.html">sHeader</a></li>
+	
 	<li><a href="../symbols/sImage.html">sImage</a></li>
 	
 	<li><a href="../symbols/sImageLink.html">sImageLink</a></li>
+	
+	<li><a href="../symbols/sObjectView.html">sObjectView</a></li>
 	
 	<li><a href="../symbols/sOptionField.html">sOptionField</a></li>
 	
@@ -268,7 +274,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sApplication.html#constructor">sApplication</a></b>(title)
+								<b><a href="../symbols/sApplication.html#constructor">sApplication</a></b>(title, loadedCallback)
 							</div>
 							<div class="description">Application.</div>
 						</td>
@@ -342,9 +348,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/sApplication.html#main">main</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/sApplication.html#hasState">hasState</a></b>(states)
 								</div>
-								<div class="description">Begin the application.</div>
+								<div class="description">If the application has any state as determined by <code>sHistory</code>.</div>
 							</td>
 						</tr>
 					
@@ -355,6 +361,15 @@ ul.inheritsList
 								</div>
 								<div class="description">Register a dialog that will be invoked when a the state 'dialog' (in the
   hash) is equal to the <code>stateName</code> specified here.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sApplication.html#setLoadedCallback">setLoadedCallback</a></b>(fn)
+								</div>
+								<div class="description">This method will run on the page's DOMContentLoaded event.</div>
 							</td>
 						</tr>
 					
@@ -384,7 +399,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sApplication</b>(title)
+						<b>sApplication</b>(title, loadedCallback)
 				</div>
 				
 				<div class="description">
@@ -404,6 +419,12 @@ ul.inheritsList
 								
 							</dt>
 								<dd>Title of the application.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{function()}</span>  <b>loadedCallback</b>
+								
+							</dt>
+								<dd>The function to call when the page loads.</dd>
 						
 						</dl>
 					
@@ -652,22 +673,33 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="main"> </a>
+					<a name="hasState"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
-					<b>main</b>()
+					<span class="light">{boolean}</span>
+					<b>hasState</b>(states)
 					
 					</div>
 					<div class="description">
-						Begin the application. This just calls <code>sHistory.start()</code> if it
-  has not been started yet.
+						If the application has any state as determined by <code>sHistory</code>.
 						
 						
 					</div>
 					
 					
 					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>states</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Array of strings to check. Each string is a state
+  name.</dd>
+							
+							</dl>
 						
 						
 						
@@ -676,18 +708,11 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
+								<dd><span class="light fixedFont">{boolean}</span> If the application has a state.</dd>
 							
 							</dl>
 						
 						
-						
-							<dl class="detailList">
-							<dt class="heading">See:</dt>
-							
-								<dd>sHistory#start</dd>
-							
-							</dl>
 						
 
 					<hr />
@@ -723,6 +748,49 @@ ul.inheritsList
 									
 								</dt>
 								<dd>The dialog to display.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sApplication.html">sApplication</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setLoadedCallback"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sApplication.html">sApplication</a>}</span>
+					<b>setLoadedCallback</b>(fn)
+					
+					</div>
+					<div class="description">
+						This method will run on the page's DOMContentLoaded event.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function()}</span> <b>fn</b>
+									
+								</dt>
+								<dd>The function to call.</dd>
 							
 							</dl>
 						
@@ -799,7 +867,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Mar 31 2012 06:13:22 GMT-0500 (CDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Apr 17 2012 14:42:37 GMT-0500 (CDT)
 		</div>
 	</body>
 </html>

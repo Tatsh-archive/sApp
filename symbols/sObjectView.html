@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sDataListItem</title>
+		<title>JsDoc Reference - sObjectView</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -244,7 +244,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sDataListItem
+				Class sObjectView
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -257,13 +257,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> &lt;./sDataListItem.js&gt;.
+					<br /><i>Defined in: </i> &lt;./sObjectView.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sDataListItem.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sObjectView.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -276,9 +276,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sDataListItem.html#constructor">sDataListItem</a></b>(data)
+								<b><a href="../symbols/sObjectView.html#constructor">sObjectView</a></b>(attributes, params)
 							</div>
-							<div class="description">Represents one item in a sDataList object.</div>
+							<div class="description">Used for representing &lt;object&gt; elements.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -310,11 +310,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sDataListItem</b>(data)
+						<b>sObjectView</b>(attributes, params)
 				</div>
 				
 				<div class="description">
-					Represents one item in a sDataList object.
+					Used for representing &lt;object&gt; elements.
 					
 				</div>
 				
@@ -326,10 +326,16 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{Object}</span>  <b>data</b>
-								
+								<span class="light fixedFont">{Object}</span>  <b>attributes</b>
+								<i>Optional</i>
 							</dt>
-								<dd>Object of data.</dd>
+								<dd>Attributes object.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>params</b>
+								<i>Optional</i>
+							</dt>
+								<dd>Parameter key-value pairs to add.</dd>
 						
 						</dl>
 					
@@ -340,7 +346,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sDataListItem.html">sDataListItem</a>}</span> The list item.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sObjectView.html">sObjectView</a>}</span> The view object.</dd>
 						
 						</dl>
 					

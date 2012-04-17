@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sDataListItem</title>
+		<title>JsDoc Reference - sCustomField</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -244,26 +244,24 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sDataListItem
+				Class sCustomField
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				
-				<br />Extends
-					<a href="../symbols/sView.html">sView</a>.<br />
 				
 			
 				
 				
 				
-					<br /><i>Defined in: </i> &lt;./sDataListItem.js&gt;.
+					<br /><i>Defined in: </i> &lt;./sCustomField.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sDataListItem.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sCustomField.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -276,9 +274,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sDataListItem.html#constructor">sDataListItem</a></b>(data)
+								<b><a href="../symbols/sCustomField.html#constructor">sCustomField</a></b>(className)
 							</div>
-							<div class="description">Represents one item in a sDataList object.</div>
+							<div class="description">Represents a custom field, typically for markup.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -292,11 +290,39 @@ ul.inheritsList
 			
 				
 				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sCustomField.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sCustomField.html#append">append</a></b>(sel)
+								</div>
+								<div class="description">Appends an element to the parent element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sCustomField.html#setInnerHTML">setInnerHTML</a></b>(html)
+								</div>
+								<div class="description">Overwrites <code>innerHTML</code> property of the main DOM element this
+  object represents.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
 				
 				
-				<dl class="inheritsList">
-				<dt>Methods borrowed from class <a href="../symbols/sView.html">sView</a>: </dt><dd><a href="../symbols/sView.html#addCustomView">addCustomView</a>, <a href="../symbols/sView.html#appendTo">appendTo</a>, <a href="../symbols/sView.html#getDOMElement">getDOMElement</a>, <a href="../symbols/sView.html#getViewByName">getViewByName</a>, <a href="../symbols/sView.html#insertAfterId">insertAfterId</a>, <a href="../symbols/sView.html#isAppended">isAppended</a>, <a href="../symbols/sView.html#isRendered">isRendered</a>, <a href="../symbols/sView.html#prependTo">prependTo</a>, <a href="../symbols/sView.html#setAppended">setAppended</a>, <a href="../symbols/sView.html#setDOMElement">setDOMElement</a>, <a href="../symbols/sView.html#setRendered">setRendered</a></dd>
-				</dl>
 				
 			
 <!-- ============================== events summary ======================== -->
@@ -310,11 +336,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sDataListItem</b>(data)
+						<b>sCustomField</b>(className)
 				</div>
 				
 				<div class="description">
-					Represents one item in a sDataList object.
+					Represents a custom field, typically for markup.
 					
 				</div>
 				
@@ -326,10 +352,10 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{Object}</span>  <b>data</b>
-								
+								<span class="light fixedFont">{string}</span>  <b>className</b>
+								<i>Optional</i>
 							</dt>
-								<dd>Object of data.</dd>
+								<dd>Class names to add.</dd>
 						
 						</dl>
 					
@@ -340,7 +366,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sDataListItem.html">sDataListItem</a>}</span> The list item.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sCustomField.html">sCustomField</a>}</span> The object.</dd>
 						
 						</dl>
 					
@@ -354,6 +380,98 @@ ul.inheritsList
 			
 
 <!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="append"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sCustomField.html">sCustomField</a>}</span>
+					<b>append</b>(sel)
+					
+					</div>
+					<div class="description">
+						Appends an element to the parent element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{sElement}</span> <b>sel</b>
+									
+								</dt>
+								<dd><code>sElement</code> instance of element to append.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sCustomField.html">sCustomField</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setInnerHTML"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sCustomField.html">sCustomField</a>}</span>
+					<b>setInnerHTML</b>(html)
+					
+					</div>
+					<div class="description">
+						Overwrites <code>innerHTML</code> property of the main DOM element this
+  object represents.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>html</b>
+									
+								</dt>
+								<dd>HTML to overwrite with.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sCustomField.html">sCustomField</a>}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
 			
 			
 <!-- ============================== event details ========================= -->		

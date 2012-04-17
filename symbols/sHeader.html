@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - sDataListItem</title>
+		<title>JsDoc Reference - sHeader</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -244,7 +244,7 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class sDataListItem
+				Class sHeader
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
@@ -257,13 +257,13 @@ ul.inheritsList
 				
 				
 				
-					<br /><i>Defined in: </i> &lt;./sDataListItem.js&gt;.
+					<br /><i>Defined in: </i> &lt;./sHeader.js&gt;.
 				
 			</p>
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sDataListItem.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class sHeader.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -276,9 +276,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/sDataListItem.html#constructor">sDataListItem</a></b>(data)
+								<b><a href="../symbols/sHeader.html#constructor">sHeader</a></b>(text, level, linkURL)
 							</div>
-							<div class="description">Represents one item in a sDataList object.</div>
+							<div class="description">Creates a header view.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -291,6 +291,55 @@ ul.inheritsList
 <!-- ============================== methods summary ======================== -->
 			
 				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class sHeader.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sHeader.html#removeClickHandler">removeClickHandler</a></b>()
+								</div>
+								<div class="description">Removes the click handler if one is set.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sHeader.html#render">render</a></b>(force)
+								</div>
+								<div class="description">Renders the view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sHeader.html#setClickHandler">setClickHandler</a></b>(fn)
+								</div>
+								<div class="description">Sets the click handler.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/sHeader.html#setText">setText</a></b>(text)
+								</div>
+								<div class="description">Sets the text.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
 				
 				
 				
@@ -310,11 +359,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>sDataListItem</b>(data)
+						<b>sHeader</b>(text, level, linkURL)
 				</div>
 				
 				<div class="description">
-					Represents one item in a sDataList object.
+					Creates a header view.
 					
 				</div>
 				
@@ -326,10 +375,23 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								<span class="light fixedFont">{Object}</span>  <b>data</b>
+								<span class="light fixedFont">{string}</span>  <b>text</b>
 								
 							</dt>
-								<dd>Object of data.</dd>
+								<dd>Text to display in the header.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>level</b>
+								<i>Optional</i>
+							</dt>
+								<dd>Header level. 1-6. Default is 2.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>linkURL</b>
+								<i>Optional</i>
+							</dt>
+								<dd>If specified, the header element will contain
+  the text as a link to the URL specified.</dd>
 						
 						</dl>
 					
@@ -340,7 +402,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">Returns:</dt>
 						
-								<dd><span class="light fixedFont">{<a href="../symbols/sDataListItem.html">sDataListItem</a>}</span> The list item.</dd>
+								<dd><span class="light fixedFont">{<a href="../symbols/sHeader.html">sHeader</a>}</span> The view object.</dd>
 						
 						</dl>
 					
@@ -354,6 +416,172 @@ ul.inheritsList
 			
 
 <!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="removeClickHandler"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sHeader.html">sHeader</a>}</span>
+					<b>removeClickHandler</b>()
+					
+					</div>
+					<div class="description">
+						Removes the click handler if one is set.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sHeader.html">sHeader</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="render"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sHeader.html">sHeader</a>}</span>
+					<b>render</b>(force)
+					
+					</div>
+					<div class="description">
+						Renders the view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>force</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Force re-rendering.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sHeader.html">sHeader</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setClickHandler"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sHeader.html">sHeader</a>}</span>
+					<b>setClickHandler</b>(fn)
+					
+					</div>
+					<div class="description">
+						Sets the click handler.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function((sEvent|Event))}</span> <b>fn</b>
+									
+								</dt>
+								<dd>Click handler function.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sHeader.html">sHeader</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setText"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/sHeader.html">sHeader</a>}</span>
+					<b>setText</b>(text)
+					
+					</div>
+					<div class="description">
+						Sets the text.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>Text to set.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/sHeader.html">sHeader</a>}</span> The object to allow method chaining.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
 			
 			
 <!-- ============================== event details ========================= -->		
