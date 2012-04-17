@@ -19,5 +19,7 @@
   "sDialog.js",
   "sImage.js",
   "sImageLink.js",
+  "sHeader.js",
+  "sObjectView.js",
   "sApplication.js"
 ]
