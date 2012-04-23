@@ -4,7 +4,7 @@
  * @param {Object} [attributes] Attributes object.
  * @param {Object} [params] Parameter key-value pairs to add.
  * @returns {sObjectView} The view object.
- * @augments {sView}
+ * @augments sView
  */
 var sObjectView = function (attributes, params) {
   this.parent.constructor.call(this);

@@ -6,7 +6,7 @@
  * @param {string} [linkURL] If specified, the header element will contain
  *   the text as a link to the URL specified.
  * @returns {sHeader} The view object.
- * @augments {sView}
+ * @augments sView
  */
 var sHeader = function (text, level, linkURL) {
   /**
