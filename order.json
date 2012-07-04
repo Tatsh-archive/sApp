@@ -14,6 +14,7 @@
   "sEmailField.js",
   "sPasswordField.js",
   "sTextAreaField.js",
+  "sMarkdownTextAreaField.js",
   "sCustomField.js",
   "sForm.js",
   "sDialog.js",
